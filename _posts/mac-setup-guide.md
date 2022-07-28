@@ -10,7 +10,7 @@ ogImage:
   url: '/assets/blog/mac-setup-guide/screenfetch-1.jpg'
 ---
 
--- As of this writing, I can confirm that all of these tools work on M1+ and intel based macs
+-- As of this writing, I can confirm that all of these tools work on M1+ and intel based macs.
 
 After going through this setup on multiple machines over the years,
 I’m finally taking the time to write it down and I'll try to update it as my workflow and technology preferences change.
@@ -67,6 +67,26 @@ brew install z
 brew install direnv
 # after
 eval "$(direnv hook zsh)"
+```
+
+## Terminal Navigation
+
+I use [**z**](https://github.com/rupa/z) frequently to jump between different directories. It works by building up a small database based on how frequently you visit those directories.
+Once it's learned enough about your project, it can become quite easy for **z** to know where you wanna go next.
+
+```bash
+❯ z -l
+0.255153   /Users/dav/foo
+0.268972   /Users/dav/bar
+0.276813   /Users/dav/war
+...
+```
+
+next time you wanna go to a directory, all you have to do is 
+```bash
+z foo
+pwd
+-> /Users/dav/foo
 ```
 
 ## Bash Functions
