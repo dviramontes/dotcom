@@ -30,20 +30,20 @@ function About() {
                 >
                   México Mágico
                 </a>
-                ✨{'  '} and I now live in {'  '}
+                ✨{'  '} and I now live in beautiful {'  '}
                 <a
                   className="underline underline-offset-2"
                   target="_blank"
                   href="https://twitter.com/hashtag/astoria?lang=en"
                 >
-                  beautiful Queens, NY
+                  Queens, NY
                 </a>
                 💐 with my partner and our many plants :)
                 <br />
                 <br />
                 I'm a software developer with experience across many web
                 technologies, most notably TypeScript, React, Node.js, Golang,
-                Clojure, Elixir, Ruby and Python. Feel free to reach out about
+                Clojure, Elixir, Python and Ruby. Feel free to reach out about
                 work opportunities and projects via the email below.
               </p>
               <br />

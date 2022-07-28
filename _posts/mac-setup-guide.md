@@ -69,7 +69,49 @@ brew install direnv
 eval "$(direnv hook zsh)"
 ```
 
+## Environment Variables
+
+[**Direnv**](https://direnv.net/) is a great way to keep your environment variables relatively close to the project that needs them.
+[Example from project page](https://direnv.net/#quick-demo):
+
+```bash
+# Create a new .envrc. This file is bash code that is going to be loaded by
+# direnv.
+$ echo export FOO=foo > .envrc
+.envrc is not allowed
+
+# allow it
+$ direnv allow .
+direnv: reloading
+direnv: loading .envrc
+direnv export: +FOO
+
+# Show that the FOO environment variable is loaded.
+$ echo ${FOO-nope}
+foo
+
+# Exit the project
+$ cd ..
+direnv: unloading
+
+# And now FOO is unset again
+$ echo ${FOO-nope}
+nope
+```
+
+## Terminal Decorator
+
+- [**p10k**](https://github.com/romkatv/powerlevel10k#homebrew) is all i need these days, it is nice, concise and easy to setup.
+
 ## Terminal Navigation
+
+### fzd
+
+[Fuzzy finding](https://github.com/junegunn/fzf) is an absolute must these days as the command line args for different languages are getting increasing complex.
+I'm looking at you [Clojure](https://clojure.org/)! with stuff like `clj -A:dev -M -m project.web.server.dev-main` :angry-fist-emoji:.
+Use `ctrl + r` to engage fuzzy finding.
+
+### Z
 
 I use [**z**](https://github.com/rupa/z) frequently to jump between different directories. It works by building up a small database based on how frequently you visit those directories.
 Once it's learned enough about your project, it can become quite easy for **z** to know where you wanna go next.
@@ -82,12 +124,17 @@ Once it's learned enough about your project, it can become quite easy for **z** 
 ...
 ```
 
-next time you wanna go to a directory, all you have to do is 
+next time you wanna go to a directory, all you have to do is
+
 ```bash
 z foo
 pwd
 -> /Users/dav/foo
 ```
+
+### Iterm2 key preferences
+
+In iterm, go to `profiles > keys > key mappings` and select **Natural text editing**. This makes it so that you can use arrow keys in terminal navigation and a bunch of other useful keybindings come with it.
 
 ## Bash Functions
 
