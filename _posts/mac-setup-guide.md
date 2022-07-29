@@ -102,6 +102,7 @@ nope
 ## Terminal PS1 Decorator
 
 - [**p10k**](https://github.com/romkatv/powerlevel10k#homebrew) is all i need these days, it is nice, concise and easy to setup.
+
 ```bash
 echo $PS1
 ```
@@ -195,7 +196,7 @@ $ cat <<EOF > ~/.gitconfig
 	ff = true
 [credential]
 	helper = store
-EOF	
+EOF
 ```
 
 ## Global Gitignore
@@ -211,4 +212,10 @@ $ cat <<EOF > ~/.gitignore_global
 EOF
 ```
 
-That's it for now. I'll update this post as I go so check back!
+Takes effect after running:
+
+```bash
+git config --global core.excludesfile ~/.gitignore_global
+```
+
+That's it for now. I'll update this post as I go, so check back!
