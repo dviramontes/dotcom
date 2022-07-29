@@ -99,9 +99,12 @@ $ echo ${FOO-nope}
 nope
 ```
 
-## Terminal Decorator
+## Terminal PS1 Decorator
 
 - [**p10k**](https://github.com/romkatv/powerlevel10k#homebrew) is all i need these days, it is nice, concise and easy to setup.
+```bash
+echo $PS1
+```
 
 ## Terminal Navigation
 
@@ -149,16 +152,6 @@ function masterToMain(){
     git branch -u origin/main main
     git remote set-head origin -a
 }
-
-# returns timestamp from epoc
-function usec() {
-    local usecs=$1;
-    local secs=$((usecs / 1000 / 1000));
-    date -r $secs
-}
-# usage
-❯ usec 1659027414045
-❯ Mon Jan 19 23:50:27 EST 1970
 ```
 
 ## SSH
@@ -202,6 +195,7 @@ $ cat <<EOF > ~/.gitconfig
 	ff = true
 [credential]
 	helper = store
+EOF	
 ```
 
 ## Global Gitignore
@@ -214,4 +208,7 @@ $ cat <<EOF > ~/.gitignore_global
 .java-version
 .elixir_ls
 .tool-versions
+EOF
 ```
+
+That's it for now. I'll update this post as I go so check back!
