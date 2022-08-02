@@ -111,7 +111,7 @@ echo $PS1
 
 ### fzd
 
-[Fuzzy finding](https://github.com/junegunn/fzf) is an absolute must these days as the command line args for different languages are getting increasing complex.
+[Fuzzy finding](https://github.com/junegunn/fzf) is an absolute must these days as the command line args for different languages are getting increasingly complex.
 I'm looking at you [Clojure](https://clojure.org/)! with stuff like `clj -A:dev -M -m project.web.server.dev-main` :angry-fist-emoji:.
 Use `ctrl + r` to engage fuzzy finding.
 
