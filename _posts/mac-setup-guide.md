@@ -218,4 +218,23 @@ Takes effect after running:
 git config --global core.excludesfile ~/.gitignore_global
 ```
 
+## Golang
+
+After 1.8 this became much easier.
+
+- `mkdir ~/go`
+
+And then add this to your `~/.zshrc`
+
+```bash
+export GOPATH=$HOME/go
+```
+
+## Aliases
+
+```bash
+alias zshedit="emacs ~/.zshrc"
+alias ll="ls -lh"
+```
+
 That's it for now. I'll update this post as I go, so check back!
