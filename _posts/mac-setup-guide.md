@@ -230,6 +230,16 @@ And then add this to your `~/.zshrc`
 export GOPATH=$HOME/go
 ```
 
+## Elixir & Erlang
+
+Other ways to get erlang and elixir into your system are more convenient but this is the setup i've found to be most reliable
+
+1. install [adsf](https://asdf-vm.com/)
+2. `asdf install erlang 25.0.3`
+3. `asdf install elixir 1.14.0-rc.0-otp-25`
+4. `asdf reshim`
+5. `export PATH="/Users/dav/.asdf/shims:$PATH"` add shims bin to path 
+
 ## Aliases
 
 ```bash
