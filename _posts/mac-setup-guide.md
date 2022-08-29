@@ -228,6 +228,14 @@ And then add this to your `~/.zshrc`
 
 ```bash
 export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+```
+
+verify
+```bash
+go env GOBIN
+go env GOPATH
 ```
 
 ## Elixir & Erlang
