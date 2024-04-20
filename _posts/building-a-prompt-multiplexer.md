@@ -1,6 +1,6 @@
 ---
 title: 'Building a prompt multiplexer'
-excerpt: '1 prompt input, 2 LLMS outputs'
+excerpt: '1 prompt input -> N LLMs outputs'
 coverImage: '/assets/blog/prompt-multiplexer/multiplexing-diagram.png'
 date: '2024-04-19T05:35:07.322Z'
 author:
@@ -10,47 +10,30 @@ ogImage:
   url: '/assets/blog/mac-setup-guide/screenfetch-1.jpg'
 ---
 
-# Building a prompt multiplexer in LiveView
-
-## Introduction
-
-What if you could prompt two different chat bots using a single prompt
-input? This is the problem I set out to solve. I wanted to be able to be able to compare the output of each
-
-That was the idea behind the prompt multiplexer. I wanted to be able to use one prompt and sent it to multiple chat bots at the same time.
-
 ## The problem
 
-Typically i use Clause and OpenAI for my chat bot needs. I wanted to be able to compare the output of each bot side by side.
-but I didn't want to have to copy and paste the prompt into each chat bot.
+> What if you could prompt two different chatbots using a single prompt?
 
-I also wanted to try using a local LLM like GPT-Neo. 
-I wanted to be able to compare the output of the local LLM with the output of the cloud based chat bots.
+That was the idea behind the prompt multiplexer. I wanted to be able to use one prompt and sent it to multiple chatbots.
+Although, I prefer [Claude](https://claude.ai/) to ChatGPT for most tasks these days, I've found it helpful to compare the output of each. 
+This typically involves me copying and pasting the prompt into each chatbot and comparing the outputs side by side.
 
-## Background
-
-[The idea isn't new](https://poe.com), but I wanted to build my own version of it. I wanted to be able to use the prompt multiplexer with any chatbot, not just the ones that have built in support for it. While at the same time, showing off LiveView's capabilities for building real time applications.
 
 ## The solution
 
-I built a LiveView application that takes a single prompt input and sends it to multiple chat bots. The chat bots are run in separate LiveView processes. The output of each chat bot is displayed side by side in the browser.
+[This idea isn't new](https://poe.com), but I wanted to build my own version of it using the real time capabilities of [Phoenix's LiveView](https://www.phoenixframework.org/).
 
-Setup
+
+![Multiplexing Diagram](/assets/blog/prompt-multiplexer/prompt-sketch-1.png)
+The output of each chatbot is displayed side by side.
+The chatbots results are streams back into the main view in separate LiveView processes.
+
+As a stretch goal, we'll throw a local LLM in the mix.
+
+### Setup
+
 ```bash
-mix phx.new prompt_multiplexer --live
+mix phx.new prompt_multi --live
 ```
 
-Setup our model for the chat bots
-```bash
-mix phx.gen.live ChatBot chat_bots name:string
-```
 
-Setup our model for the prompts
-```bash
-mix phx.gen.live Prompt prompts text:text
-```
-
-Setup our model for the outputs
-```bash
-mix phx.gen.live Output outputs text:text chat_bot_id:references:chat_bots
-```
