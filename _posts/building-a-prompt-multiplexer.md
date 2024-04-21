@@ -25,8 +25,8 @@ This typically involves me copying and pasting the prompt into each chatbot and 
 
 
 ![Multiplexing Diagram](/assets/blog/prompt-multiplexer/prompt-sketch-1.png)
-The output of each chatbot is displayed side by side.
-The chatbots results are streams back into the main view in separate LiveView processes.
+The chatbots results are streams back into the main view in separate LiveView processes [(which just regular erlang/elixir process)](https://fly.io/phoenix-files/a-liveview-is-a-process/).
+With output of each LLM displayed side by side, I can easily compare the quality of the responses.
 
 As a stretch goal, we'll throw a local LLM in the mix.
 
