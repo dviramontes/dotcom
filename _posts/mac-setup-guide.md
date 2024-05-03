@@ -233,6 +233,7 @@ export PATH=$PATH:$GOBIN
 ```
 
 verify
+
 ```bash
 go env GOBIN
 go env GOPATH
@@ -244,16 +245,15 @@ Other ways to get erlang and elixir into your system are more convenient but thi
 
 - install [adsf](https://asdf-vm.com/)
 - Add plugins
-- -  `asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git`
-- -  `asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git`
+- - `asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git`
+- - `asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git`
 - `asdf install erlang 25.0.3`
 - `asdf install elixir 1.14.0-rc.0-otp-25`
 - `asdf global erlang 25.0.3`
 - `asdf global elixir 1.14.0`
 - `asdf reshim`
 - add shims bin to path
-- - `export PATH="$HOME/.asdf/shims:$PATH"` 
-
+- - `export PATH="$HOME/.asdf/shims:$PATH"`
 
 ## Aliases
 

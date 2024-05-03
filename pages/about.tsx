@@ -22,9 +22,9 @@ function About() {
                 {' '}
                 My name is <b>David A. Viramontes Martinez</b>
                 <br />
-                <br /> I'm originally from{' '}
-                  México Mágico ✨{'  '} and I now live in beautiful {'  '}
-                  Queens, NY 💐 with my partner and our many plants :)
+                <br /> I'm originally from México Mágico ✨{'  '} and I now live
+                in beautiful {'  '}
+                Queens, NY 💐 with my partner and our many plants :)
                 <br />
                 <br />
                 I'm a software developer with experience across many web
@@ -35,7 +35,7 @@ function About() {
               <br />
               <p className="">
                 <a target="_blank" href="mailto:dviramontes@gmail.com">
-                  dviramontes@gmail.com
+                  <pre>dviramontes[at]gmail[dot]com</pre>
                 </a>
               </p>
               <br />
