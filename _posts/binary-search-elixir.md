@@ -14,18 +14,18 @@ A question I get asked often is..
 
 > Is ChatGPT helpful with Elixir?
 
-The answer is yes, and not only do recent versions of 
-ChatGPT and [Claude](https://claude.ai/) understand Elixir code, 
+The answer is yes, and not only do recent versions of
+ChatGPT and [Claude](https://claude.ai/) understand Elixir code,
 in the case of Claude, it can even write idiomatic Elixir code! 🤯
-
 
 ### Binary Search in Elixir
 
-Let's implement a quick and dirty version of binary search 
-and we'll improve upon it with the help of Claude using the 
+Let's implement a quick and dirty version of binary search
+and we'll improve upon it with the help of Claude using the
 [latest Opus model](https://www.anthropic.com/news/claude-3-family).
 
 Here is our first pass at a binary search implementation in Elixir:
+
 ```elixir
 defmodule Binary do
   def search(list, target) do
@@ -43,7 +43,7 @@ defmodule Binary do
         guess > target -> search(list, target, min, (mid - 1))
         guess < target -> search(list, target, (mid + 1), max)
         true -> -1
-      end 
+      end
     end
   end
 end
@@ -80,5 +80,3 @@ Binary.search([1, 2, 3, 4, 5], 6) # => -1
 
 It also added a guard `when min <= max` to `search/4` to ensure the search continues only
 when the minimum index is less than or equal to the maximum index.
-
-
