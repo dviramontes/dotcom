@@ -10,21 +10,17 @@ ogImage:
   url: '/assets/blog/binary-search-elixir/cover.png'
 ---
 
-A question I get asked often is..
+A question I get asked is
 
 > Is ChatGPT helpful with Elixir?
 
-The answer is yes, and not only do recent versions of
-ChatGPT and [Claude](https://claude.ai/) understand Elixir code,
-in the case of Claude, it can even write idiomatic Elixir code! 🤯
+The answer is yes, and not only do recent versions of ChatGPT and [Claude](https://claude.ai/) understand Elixir code, but in the case of Claude, it can even write idiomatic Elixir code! 🤯
 
 ### Binary Search in Elixir
 
-Let's implement a quick and dirty version of binary search
-and we'll improve upon it with the help of Claude using the
-[latest Opus model](https://www.anthropic.com/news/claude-3-family).
 
-Here is our first pass at a binary search implementation in Elixir:
+Let's implement a quick and dirty version of binary search, and we'll improve upon it with Claude's [latest Opus model](https://www.anthropic.com/news/claude-3-family).
+We'll use [recursion since it is only way to iterate through a list in Elixir](https://hexdocs.pm/elixir/recursion.html). There are also `for` loops in Elixir but they are more like the [list comprehensions](https://hashrocket.com/blog/posts/elixir-for-loops-go-beyond-comprehension) you find in Python.
 
 ```elixir
 defmodule Binary do
@@ -49,9 +45,7 @@ defmodule Binary do
 end
 ```
 
-Notice a problem with the code above?
-It doesn't actually return -1 if the target is not found. This is because we're missing a pattern match to handle the case when the list is empty.
-Not only did Claude catch this, it also suggested a more idiomatic way to write the code using a case statement instead of cond.
+Notice a problem with the code above? It doesn't return `-1` if the target isn't found. We're missing a pattern match to handle the case when the list is empty. Not only did Claude catch this, but it also suggested a more idiomatic way to write the code using a `case` expression instead of `cond`.
 
 ```elixir
 defmodule Binary do
@@ -78,5 +72,4 @@ Binary.search([1, 2, 3, 4, 5], 3) # => 2
 Binary.search([1, 2, 3, 4, 5], 6) # => -1
 ```
 
-It also added a guard `when min <= max` to `search/4` to ensure the search continues only
-when the minimum index is less than or equal to the maximum index.
+It also added a guard `when min <= max` to `search/4` to ensure the search continues only when the minimum index is less than or equal to the maximum index. I'm impressed with Claude's abilities to write Elixir and other functional code. 

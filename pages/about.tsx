@@ -24,7 +24,7 @@ function About() {
                 <br />
                 <br /> I'm originally from México Mágico ✨{'  '} and I now live
                 in beautiful {'  '}
-                Queens, NY 💐 with my partner and our many plants :)
+                Queens, NY 💐
                 <br />
                 <br />
                 I'm a software developer with experience across many web
