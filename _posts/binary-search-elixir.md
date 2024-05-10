@@ -18,7 +18,6 @@ The answer is yes, and not only do recent versions of ChatGPT and [Claude](https
 
 ### Binary Search in Elixir
 
-
 Let's implement a quick and dirty version of binary search, and we'll improve upon it with Claude's [latest Opus model](https://www.anthropic.com/news/claude-3-family).
 We'll use [recursion since it is only way to iterate through a list in Elixir](https://hexdocs.pm/elixir/recursion.html). There are also `for` loops in Elixir but they are more like the [list comprehensions](https://hashrocket.com/blog/posts/elixir-for-loops-go-beyond-comprehension) you find in Python.
 
@@ -72,4 +71,4 @@ Binary.search([1, 2, 3, 4, 5], 3) # => 2
 Binary.search([1, 2, 3, 4, 5], 6) # => -1
 ```
 
-It also added a guard `when min <= max` to `search/4` to ensure the search continues only when the minimum index is less than or equal to the maximum index. I'm impressed with Claude's abilities to write Elixir and other functional code. 
+It also added a guard `when min <= max` to `search/4` to ensure the search continues only when the minimum index is less than or equal to the maximum index. I'm impressed with Claude's abilities to write Elixir and other functional code.
