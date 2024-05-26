@@ -10,21 +10,20 @@ ogImage:
   url: '/assets/blog/binary-search-elixir/cover.png'
 ---
 
-A question I get asked is
-
-> Is ChatGPT helpful with Elixir?
-
-The answer is yes, and not only do recent versions of ChatGPT and [Claude](https://claude.ai/) understand Elixir code, but in the case of Claude, it can even write idiomatic Elixir code! 🤯
+> **Disclaimer**: Implementing binary search in Elixir may not be as performant as in languages with native array support. Elixir's lists are linked lists, which have O(n) time complexity for accessing elements by index. This impacts the efficiency of binary search, which relies on quick random access. In contrast, languages like C or Rust have O(1) array access, making binary search more efficient. However, Elixir's choice of linked lists aligns with its design goals of immutability, concurrency, and fault tolerance. Different languages have different trade-offs and are designed for different purposes.
 
 ### Binary Search in Elixir
 
-Let's implement a quick and dirty version of binary search, and we'll improve upon it with Claude's [latest Opus model](https://www.anthropic.com/news/claude-3-family).
-We'll use [recursion since it is only way to iterate through a list in Elixir](https://hexdocs.pm/elixir/recursion.html). There are also `for` loops in Elixir but they are more like the [list comprehensions](https://hashrocket.com/blog/posts/elixir-for-loops-go-beyond-comprehension) you find in Python.
+Let's implement a quick and dirty version of binary search, and we'll improve upon it after identifying the base case and the recusrive case. We have to use recursion in Elixir because [it's the only way to iterate through a list in Elixir](https://hexdocs.pm/elixir/recursion.html). Elixir has for loops but they are actually more like the [list comprehensions](https://hashrocket.com/blog/posts/elixir-for-loops-go-beyond-comprehension) you find in Python.
 
 ```elixir
 defmodule Binary do
   def search(list, target) do
     search(list, target, 0, length(list) - 1)
+  end
+
+  def search([], _target) do
+    -1
   end
 
   def search(list, target, min, max) do
@@ -34,9 +33,14 @@ defmodule Binary do
       guess = Enum.at(list, mid)
 
       cond do
+        # base case 1, lucky guess
         target == guess -> mid
+
+        # recursive case
         guess > target -> search(list, target, min, (mid - 1))
         guess < target -> search(list, target, (mid + 1), max)
+
+        # base case 2, target not found
         true -> -1
       end
     end
@@ -44,7 +48,7 @@ defmodule Binary do
 end
 ```
 
-Notice a problem with the code above? It doesn't return `-1` if the target isn't found. We're missing a pattern match to handle the case when the list is empty. Not only did Claude catch this, but it also suggested a more idiomatic way to write the code using a `case` expression instead of `cond`.
+Notice a problem with the code above? It doesn't return `-1` if the target isn't found. We're also missing a pattern match to handle the case when the list is empty. Let's improve our algorightm with a more idiomatic Elixir approach by using a `case` expression instead of `cond`.
 
 ```elixir
 defmodule Binary do
@@ -71,4 +75,4 @@ Binary.search([1, 2, 3, 4, 5], 3) # => 2
 Binary.search([1, 2, 3, 4, 5], 6) # => -1
 ```
 
-It also added a guard `when min <= max` to `search/4` to ensure the search continues only when the minimum index is less than or equal to the maximum index. I'm impressed with Claude's abilities to write Elixir and other functional code.
+Notice how we added a guard `when min <= max` to `search/4` to ensure the search continues only when the minimum index is less than or equal to the maximum index. [The pin operator](https://hexdocs.pm/elixir/pattern-matching.html#the-pin-operator) `^` also helps us get rid of the `if` inside our recursive case.
