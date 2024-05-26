@@ -44,7 +44,7 @@ defmodule Binary do
 end
 ```
 
-Notice a problem with the code above? It doesn't return `-1` if the target isn't found. We're also missing a pattern match to handle the case when the list is empty. Let's improve our algorightm with a more idiomatic Elixir by using a `case` expression instead of `cond`.
+Do you notice a problem with the code above? It doesn't return -1 if the target isn't found. We're also missing a pattern match to handle the case when the list is empty. Let's improve our algorithm by using a more idiomatic Elixir. Let's start by replacing the `cond` expression with a `case` expression
 
 ```elixir
 defmodule Binary do
