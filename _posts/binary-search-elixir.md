@@ -22,10 +22,6 @@ defmodule Binary do
     search(list, target, 0, length(list) - 1)
   end
 
-  def search([], _target) do
-    -1
-  end
-
   def search(list, target, min, max) do
     if min <= max do
       # div performs integer division
