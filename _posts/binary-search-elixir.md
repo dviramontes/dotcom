@@ -14,7 +14,7 @@ ogImage:
 
 ### Binary Search in Elixir
 
-Let's implement a quick and dirty version of binary search, and we'll improve upon it after identifying the base case and the recusrive case. We have to use recursion in Elixir because [it's the only way to iterate through a list in Elixir](https://hexdocs.pm/elixir/recursion.html). Elixir has for loops but they are actually more like the [list comprehensions](https://hashrocket.com/blog/posts/elixir-for-loops-go-beyond-comprehension) you find in Python.
+Let's implement a quick and dirty version of binary search, and we'll improve upon it after identifying the base case and the recursive case. We have to use recursion because [it's the only way to iterate through a list in Elixir](https://hexdocs.pm/elixir/recursion.html). Elixir also has for loops but they are more like the [list comprehensions](https://hashrocket.com/blog/posts/elixir-for-loops-go-beyond-comprehension) you find in Python.
 
 ```elixir
 defmodule Binary do
@@ -44,7 +44,7 @@ defmodule Binary do
 end
 ```
 
-Notice a problem with the code above? It doesn't return `-1` if the target isn't found. We're also missing a pattern match to handle the case when the list is empty. Let's improve our algorightm with a more idiomatic Elixir approach by using a `case` expression instead of `cond`.
+Notice a problem with the code above? It doesn't return `-1` if the target isn't found. We're also missing a pattern match to handle the case when the list is empty. Let's improve our algorightm with a more idiomatic Elixir by using a `case` expression instead of `cond`.
 
 ```elixir
 defmodule Binary do
