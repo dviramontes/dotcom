@@ -1,6 +1,6 @@
 ---
 title: 'Binary Search in Elixir'
-excerpt: 'Implementing binary search in Elixir and improving it with the help of Claude.'
+excerpt: 'Implementing binary search in Elixir'
 date: '2024-05-03T12:00:00.0Z'
 coverImage: '/assets/blog/binary-search-elixir/cover.png'
 author:
