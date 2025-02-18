@@ -54,7 +54,11 @@ defmodule Dotcom.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      # publishing
+      {:nimble_publisher, "~> 1.1.0"},
+      {:makeup_erlang, "~> 1.0"},
+      {:makeup_elixir, "~> 1.0"}
     ]
   end
 
