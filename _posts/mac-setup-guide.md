@@ -1,5 +1,5 @@
 ---
-title: 'mac setup guide for web development'
+title: 'Mac setup guide for web development'
 excerpt: 'An opinionated setup guide for web development on a mac'
 coverImage: '/assets/blog/mac-setup-guide/screenfetch-1.jpg'
 date: '2022-07-28T05:35:07.322Z'
