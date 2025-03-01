@@ -1,12 +1,22 @@
 /* PrismJS 1.29.0
 https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+bash+elixir+erlang+graphql+json+jsx+markdown+python+jsx+sql+typescript */
 
+/* Custom ServerMono Font */
+@font-face {
+  font-family: 'Server Mono';
+  src: url('/fonts/ServerMono-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 code[class*='language-'],
 pre[class*='language-'] {
   color: #ccc;
   background: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1em;
+  font-family: 'Server Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace;
+  font-size: 0.925em;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
