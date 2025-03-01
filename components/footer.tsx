@@ -33,10 +33,10 @@ const Footer = () => {
             </a>
             <a
               target="_blank"
-              href="https://twitter.com/dviramontes_"
+              href="https://dviramontes.bsky.social/"
               className="mx-3 font-bold hover:underline"
             >
-              Twitter
+              Bluesky
             </a>
           </div>
         </div>
