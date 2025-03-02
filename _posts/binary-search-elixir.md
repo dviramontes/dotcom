@@ -1,6 +1,6 @@
 ---
 title: 'Binary Search in Elixir'
-excerpt: 'Implementing binary search in Elixir'
+excerpt: "Let's implement a quick and dirty version of binary search, and we'll improve upon it after identifying the base case and the recursive case."
 date: '2024-05-03T12:00:00.0Z'
 coverImage: '/assets/blog/binary-search-elixir/cover.png'
 author:

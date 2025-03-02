@@ -1,6 +1,6 @@
 ---
 title: 'Using stow to manage dotfiles on multiple machines'
-excerpt: 'Stow is a tool that manages symbolic links to make distinct packages of software and config appear installed in the same place'
+excerpt: "If you work on multiple machines like me, you've likely accumulated a collection of configuration files over time."
 coverImage: '/assets/blog/stow/stow.png'
 date: '2025-03-01T05:35:07.322Z'
 author:
@@ -14,7 +14,7 @@ ogImage:
 
 ## Introduction
 
-If you're a developer who works on multiple machines, you've likely accumulated a collection of configuration files over time. In this blog post, I'll explain how I use GNU Stow to organize and manage dotfiles efficiently.
+If you work on multiple machines like me, you've likely accumulated a collection of configuration files over time. In this blog post, I'll explain how I use GNU Stow to organize and manage dotfiles efficiently.
 
 ## What is GNU Stow?
 
