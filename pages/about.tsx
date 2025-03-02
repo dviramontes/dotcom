@@ -15,20 +15,19 @@ function About(): JSX.Element {
             <h1 className="text-5xl">👋🏽 ¡Hola!</h1>
             <br />
             <p>
-              My name is <b>David A. Viramontes Martinez</b>
+              My name is <b>David Viramontes</b>
               <br />
               <br />
-              I'm originally from México Mágico ✨ and I now live in beautiful
-              Queens, NY 💐
+              I'm originally from México Mágico ✨ and I now live in beautiful Queens, NY 💐
               <br />
               <br />
-              I'm a software developer with experience across many web
+              I'm a software developer with experience across various web
               technologies, most notably TypeScript, React, Node.js, Golang,
               Clojure, Elixir, Python, and Ruby. Feel free to reach out about
               work opportunities and projects via the email below.
             </p>
             <br />
-            <p className="">
+            <p>
               <a
                 target="_blank"
                 rel="noreferrer"
@@ -44,7 +43,6 @@ function About(): JSX.Element {
             <p>Other places on the web you can find me:</p>
             <ul>
               <li>
-                -{' '}
                 <a
                   className="underline hover:text-darkblue-300 duration-200 transition-colors"
                   target="_blank"
@@ -55,40 +53,36 @@ function About(): JSX.Element {
                 </a>
               </li>
               <li>
-                -{' '}
                 <a
                   className="underline hover:text-darkblue-300 duration-200 transition-colors"
                   target="_blank"
                   rel="noreferrer"
-                  href="http://github.com/dviramontes/"
+                  href="https://github.com/dviramontes/"
                 >
-                  Github
+                  GitHub
                 </a>
               </li>
               <li>
-                -{' '}
                 <a
                   className="underline hover:text-darkblue-300 duration-200 transition-colors"
                   target="_blank"
                   rel="noreferrer"
                   href="https://www.linkedin.com/in/davidviramontes"
                 >
-                  Linkedin
+                  LinkedIn
                 </a>
               </li>
               <li>
-                -{' '}
                 <a
                   className="underline hover:text-darkblue-300 duration-200 transition-colors"
                   target="_blank"
                   rel="noreferrer"
                   href="https://stackoverflow.com/users/1251467/dviramontes"
                 >
-                  Stackoverflow
+                  Stack Overflow
                 </a>
               </li>
               <li>
-                -{' '}
                 <a
                   className="underline hover:text-darkblue-300 duration-200 transition-colors"
                   target="_blank"
@@ -99,14 +93,13 @@ function About(): JSX.Element {
                 </a>
               </li>
               <li>
-                -{' '}
                 <a
                   className="underline hover:text-darkblue-300 duration-200 transition-colors"
                   target="_blank"
                   rel="noreferrer"
                   href="https://soundcloud.com/dreampilot/tracks"
                 >
-                  Soundcloud
+                  SoundCloud
                 </a>
               </li>
             </ul>
