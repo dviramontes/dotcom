@@ -1,49 +1,44 @@
 ---
 title: 'Using stow to manage dotfiles on multiple machines'
-excerpt: 'stow is a symlink farm manager that takes distinct packages of software and/or data and makes them appear to be installed in the same place'
+excerpt: 'Stow is a tool that manages symbolic links to make distinct packages of software and config appear installed in the same place'
 coverImage: '/assets/blog/stow/stow.png'
 date: '2025-03-01T05:35:07.322Z'
 author:
   name: David Viramontes
   picture: '/assets/blog/authors/davm.png'
 ogImage:
-  url: '/assets/blog/mac-setup-guide/screenfetch-1.jpg'
+  url: '/assets/blog/stow/stow.png'
 ---
 
 # A Practical Guide to using Stow
 
 ## Introduction
 
-If you're a developer who works on multiple machines, you've likely accumulated a collection of configuration files (dotfiles) over time. 
-Managing these files across different machines can be a real pain. In this blog post, I'll explain how I use GNU Stow to organize and manage my dotfiles efficiently.
+If you're a developer who works on multiple machines, you've likely accumulated a collection of configuration files over time. In this blog post, I'll explain how I use GNU Stow to organize and manage dotfiles efficiently.
 
 ## What is GNU Stow?
 
-[GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) is a symlink farm manager that takes distinct packages of software and/or data and makes them appear to be installed in the same place. It's particularly useful for managing dotfiles because it allows you to:
-
-1. Keep all your configurations in a single directory structure
-2. Version control your dotfiles using Git
-3. Easily deploy configurations to new systems
-4. Selectively use configurations based on your needs
+[GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) is a symlink farm manager that helps organize dotfiles in a single directory structure. It's particularly useful because it allows you to version your configurations with Git while keeping your home directory clean.
 
 ## My Dotfiles Repository Structure
 
-My dotfiles repository is organized with a directory for each application or tool I use:
+[My dotfiles repository](https://github.com/dviramontes/dotfiles) is organized with a directory for each application or tool I use
 
 ```
 dotfiles/
-├── alias/               # Shell aliases
+├── alias/               # shell aliases
 │   └── .alias.sh
-├── clojure/             # Clojure global configuration
+├── clj/                 # clojure config
 │   └── deps.edn
-├── gitconfig/           # Git configuration
+├── gitconfig/           # git config
 │   └── .gitconfig
-├── gitignore/           
+├── gitignore/           # global gitignore
 │   └── .gitignore
-├── zsh/                 # Zsh configuration
+├── zed/                 # zed keybindings and language server config
+│   └── zed.json
+├── zsh/                 # zsh config
 │   └── .zshrc
-├── Brewfile             # Homebrew packages
-└── ...
+...
 ```
 
 Each directory contains the configuration files for a specific tool, organized as they would appear relative to my home directory.
@@ -63,67 +58,18 @@ stow zsh
 stow gitconfig
 ```
 
-When I run `stow zsh`, for example, stow creates a symlink from `~/.zshrc` to `~/dotfiles/zsh/.zshrc`. This means I can edit either file and the changes will be reflected in both places.
+When I run `stow zsh`, stow creates a symlink from `~/.zshrc` to `~/dotfiles/zsh/.zshrc`. Similarly, `stow gitconfig` creates a symlink for `~/.gitconfig`. This means I can edit either the original or symlinked file, and changes will be reflected in both places.
 
-## Shell Configuration with Zsh
+Verify the symlinks by running `ls -l` in your home directory.
 
-My Zsh configuration (`.zshrc`) is fairly comprehensive, including:
-
-- Oh-My-Zsh setup with the "robbyrussell" theme
-- Git plugin for Git integration
-- Integration with z for quick directory navigation
-- NVM for Node.js version management
-- FZF for fuzzy file finding
-- Custom aliases loaded from a separate file
-
-## Shell Aliases
-
-I keep my aliases in a separate file (`.alias.sh`) for better organization. Some of my aliases include:
-
-
-## Git Configuration
-
-My Git configuration includes user information, editor preferences, color settings, and helpful aliases:
-
+```bash
+ls -l ~/.zshrc
+lrwxr-xr-x@ - dv  1 Mar 14:34 /Users/dv/.zshrc -> local/dviramontes/dotfiles/zsh/.zshrc
 ```
-[user]
-    name = John Doe
-    email = john.doe@example.com
-
-[core]
-    editor = nvim
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.gitignore
-
-[alias]
-    st = status
-    ci = commit
-    co = checkout
-    # more aliases...
-
-[init]
-    defaultBranch = main
-```
-
-## Managing Packages with Homebrew
-
-I use Homebrew to install and manage software packages on macOS. My Brewfile includes:
-
-### Development Tools
-- Git, Neovim, and Stow for development
-- Tools like ripgrep, z, fzf, and jq for efficient workflows
-- ASDF for version management
-- Docker for containerization
-
-### Applications
-- Browsers like Google Chrome and Firefox
-- Terminal emulator (iTerm2)
-- Code editors (Visual Studio Code)
-- Communication apps (Slack, Discord)
 
 ### Installation Process
 
-To set up a new machine with my dotfiles and applications:
+To set up a new machine with your dotfiles:
 
 1. Clone the dotfiles repository:
    ```bash
@@ -131,27 +77,13 @@ To set up a new machine with my dotfiles and applications:
    cd ~/.dotfiles
    ```
 
-2. Install Homebrew packages:
-   ```bash
-   brew bundle
-   ```
+2. Install necessary packages using your preferred package manager
 
 3. Use Stow to create symbolic links:
    ```bash
    stow */  # Or stow individual packages
    ```
-
-## Benefits of This Approach
-
-- **Modular**: I can add, remove, or modify configurations for individual tools without affecting others
-- **Portable**: Easy to set up new machines with my preferred configurations
-- **Versioned**: All changes are tracked in Git, making it easy to revert changes or synchronize across machines
-
+   
 ## Conclusion
 
-GNU Stow provides an elegant solution for managing dotfiles. By organizing configurations into a clear directory structure and using symbolic links, I can maintain a clean home directory while still having all my configurations backed up and version controlled. Combined with Homebrew for package management, this approach makes setting up new machines or recovering from system issues much simpler.
-
-If you're looking to organize your dotfiles, I highly recommend giving GNU Stow a try.
-
-My dotfiles repository: [https://github.com/dviiramontes/dotfiles](https://github.com/dviramontes/dotfiles)
-
+GNU Stow provides an elegant solution for managing dotfiles. With a simple naming scheme and directory structure, you can maintain a clean home directory while keeping all configurations backed up and version controlled. If you're looking to organize your dotfiles across multiple machines, give GNU Stow a try.
