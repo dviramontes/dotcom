@@ -1,6 +1,6 @@
 ---
 title: 'Using stow to manage dotfiles on multiple machines'
-excerpt: "If you work on multiple machines like me, you've likely accumulated a collection of configuration files over time."
+excerpt: "If you work across multiple systems, you've likely accumulated a collection of configuration files over time."
 coverImage: '/assets/blog/stow/stow.png'
 date: '2025-03-01T05:35:07.322Z'
 author:
@@ -45,7 +45,7 @@ Each directory contains the configuration files for a specific tool, organized a
 
 ## Using Stow to Manage Dotfiles
 
-Stow works by creating symbolic links from the target directory (usually your home directory) to the files in the stow directory. The key benefit is that you maintain the files in their own separate package directories.
+Stow creates symbolic links from your home directory to the files in your stow directory, allowing you to maintain files in their own separate package directories.
 
 Here's how I use stow to deploy my configurations:
 
@@ -58,7 +58,8 @@ stow zsh
 stow gitconfig
 ```
 
-When I run `stow zsh`, stow creates a symlink from `~/.zshrc` to `~/dotfiles/zsh/.zshrc`. Similarly, `stow gitconfig` creates a symlink for `~/.gitconfig`. This means I can edit either the original or symlinked file, and changes will be reflected in both places.
+When I run `stow zsh`, stow creates a symlink from `~/.zshrc` to `~/dotfiles/zsh/.zshrc`. Similarly, `stow gitconfig` creates a symlink for `~/.gitconfig`. 
+And because this is a symlink, any changes made to the original file will be reflected in both places allowing you to track changes easily.
 
 Verify the symlinks by running `ls -l` in your home directory.
 
@@ -71,15 +72,16 @@ lrwxr-xr-x@ - dv  1 Mar 14:34 /Users/dv/.zshrc -> local/dviramontes/dotfiles/zsh
 
 To set up a new machine with your dotfiles:
 
-1. Clone the dotfiles repository:
+- `brew install stow`
+
+- Clone the dotfiles repository:
    ```bash
    git clone https://github.com/username/dotfiles.git ~/.dotfiles
    cd ~/.dotfiles
    ```
+- Install necessary packages using your preferred package manager
 
-2. Install necessary packages using your preferred package manager
-
-3. Use Stow to create symbolic links:
+- Use Stow to create symbolic links:
    ```bash
    stow */  # Or stow individual packages
    ```
