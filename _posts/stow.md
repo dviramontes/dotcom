@@ -58,7 +58,7 @@ stow zsh
 stow gitconfig
 ```
 
-When I run `stow zsh`, stow creates a symlink from `~/.zshrc` to `~/dotfiles/zsh/.zshrc`. Similarly, `stow gitconfig` creates a symlink for `~/.gitconfig`. 
+When I run `stow zsh`, stow creates a symlink from `~/.zshrc` to `~/dotfiles/zsh/.zshrc`. Similarly, `stow gitconfig` creates a symlink for `~/.gitconfig`.
 And because this is a symlink, any changes made to the original file will be reflected in both places allowing you to track changes easily.
 
 Verify the symlinks by running `ls -l` in your home directory.
