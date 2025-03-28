@@ -17,6 +17,16 @@ const Footer = () => {
                 About
               </a>
             </Link>
+            <Link href="/">
+              <a className="mx-3 font-bold hover:underline">
+                Blog
+              </a>
+            </Link>
+            <Link href="/til">
+              <a className="mx-3 font-bold hover:underline">
+                TIL
+              </a>
+            </Link>
             <a
               target="_blank"
               href="https://github.com/dviramontes"
