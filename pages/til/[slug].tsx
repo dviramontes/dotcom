@@ -83,7 +83,7 @@ export async function getStaticProps({ params }: Params) {
 
 export async function getStaticPaths() {
   const posts = getAllEntries('til', ['slug'])
-  console.log({posts})
+  console.log({ posts })
   return {
     paths: posts.map((post) => {
       return {

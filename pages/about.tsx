@@ -18,10 +18,11 @@ function About(): JSX.Element {
               My name is <b>David Viramontes</b>
               <br />
               <br />
-              I'm originally from México Mágico ✨ and I now live in beautiful Queens, NY 💐
+              I&apos;m originally from México Mágico ✨ and I now live in beautiful
+              Queens, NY 💐
               <br />
               <br />
-              I'm a software developer with experience across various web
+              I&apos;m a software developer with experience across various web
               technologies, most notably TypeScript, React, Node.js, Golang,
               Clojure, Elixir, Python, and Ruby. Feel free to reach out about
               work opportunities and projects via the email below.
