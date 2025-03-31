@@ -8,7 +8,12 @@ type Props = {
 
 const TILTerminalList = ({ entries }: Props) => {
   const [formattedEntries, setFormattedEntries] = useState<
-    { name: string; size: string; date: string }[]
+    {
+      excerpt: string
+      name: string
+      size: string
+      date: string
+    }[]
   >([])
 
   useEffect(() => {
@@ -18,15 +23,17 @@ const TILTerminalList = ({ entries }: Props) => {
       const date = entry.date
 
       // Format size (mock data for now, could be replaced with actual size)
-      const sizeKB = Math.round((entry.content?.length || 0) / 10) / 100
-      const size = `${sizeKB > 0 ? sizeKB : 1}.${
-        Math.floor(Math.random() * 9) + 1
-      } KB`
+      const sizeKB = Math.max(
+        1,
+        Math.round((entry.content?.length || 0) / 100) / 10,
+      )
+      const size = `${sizeKB.toFixed(1)} KB`
 
       return {
         name: `${entry.slug}.md`,
         size,
         date,
+        excerpt: entry.excerpt,
       }
     })
 
@@ -47,13 +54,15 @@ const TILTerminalList = ({ entries }: Props) => {
             >
               <div className="flex flex-wrap">
                 <span className="text-blue-400 mr-2">.rw-r--r--</span>
-                <span className="text-green-400 mr-2">davm</span>
+                <span className="text-green-400 mr-2">dav</span>
                 <span className="text-yellow-400 mr-2">staff</span>
                 <span className="text-purple-400 mr-2">{entry.size}</span>
                 <span className="text-white underline decoration-dotted decoration-gray-500 hover:decoration-white">
                   {entry.name}
                 </span>
-                <span className="ml-2 text-gray-500 text-xs">[til]</span>
+                <span className="ml-2 text-gray-500 text-xs">
+                  [{entry.excerpt}]
+                </span>
               </div>
             </Link>
           ))

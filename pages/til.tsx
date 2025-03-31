@@ -5,6 +5,8 @@ import { getAllEntries } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 import type TILType from '../interfaces/til'
+import Header from '../components/header'
+import SubIntro from '../components/subintro'
 
 type Props = {
   allPosts: TILType[]
@@ -13,16 +15,21 @@ type Props = {
 export default function Index({ allPosts }: Props) {
   return (
     <>
-      <Layout>
+      <Layout preview={false}>
         <Head>
-          <title>{CMS_NAME}</title>
+          <title>TIL | {CMS_NAME}</title>
         </Head>
-        <Container>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight md:pr-8 mb-8">
-            Today I Learned
-          </h1>
-          {allPosts.length > 0 && <TILTerminalList entries={allPosts} />}
-        </Container>
+        <article>
+          <Container>
+            <Header />
+            <article className="mb-32">
+              <div className="max-w-2xl mx-auto">
+                <SubIntro />
+                {allPosts.length > 0 && <TILTerminalList entries={allPosts} />}
+              </div>
+            </article>
+          </Container>
+        </article>
       </Layout>
     </>
   )
