@@ -9,8 +9,9 @@ type Props = {
   coverImage: string
   date: string
   excerpt: string
-  author: Author
+  author: any
   slug: string
+  basePath: string
 }
 
 const PostPreview = ({
@@ -20,15 +21,18 @@ const PostPreview = ({
   excerpt,
   author,
   slug,
+  basePath,
 }: Props) => {
   return (
     <div>
-      <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
-      </div>
+      {coverImage && (
+        <div className="mb-5">
+          <CoverImage slug={slug} title={title} src={coverImage} />
+        </div>
+      )}
       <h3 className="text-3xl mb-3 leading-snug">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">{title}</a>
+        <Link as={`${basePath}/${slug}`} href={`${basePath}/[slug]`}>
+          <span className="hover:underline">{title}</span>
         </Link>
       </h3>
       <div className="text-lg mb-4">

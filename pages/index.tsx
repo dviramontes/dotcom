@@ -3,16 +3,18 @@ import MorePosts from '../components/more-posts'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
+import TILTerminalList from '../components/til-terminal-list'
+import { getAllEntries } from '../lib/api'
 import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
 import Post from '../interfaces/post'
+import TILType from '../interfaces/til'
 
 type Props = {
   allPosts: Post[]
+  allTILs: TILType[]
 }
 
-export default function Index({ allPosts }: Props) {
+export default function Index({ allPosts, allTILs }: Props) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
@@ -23,8 +25,10 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           <Intro />
+          {allTILs.length > 0 && <TILTerminalList entries={allTILs} />}
           {heroPost && (
             <HeroPost
+              basePath="/posts"
               title={heroPost.title}
               coverImage={heroPost.coverImage}
               date={heroPost.date}
@@ -33,7 +37,9 @@ export default function Index({ allPosts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )}
-          {morePosts.length > 0 && <MorePosts posts={morePosts} />}
+          {morePosts.length > 0 && (
+            <MorePosts posts={morePosts} basePath="/posts" />
+          )}
         </Container>
       </Layout>
     </>
@@ -41,7 +47,7 @@ export default function Index({ allPosts }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
+  const allPosts = getAllEntries('posts', [
     'title',
     'date',
     'slug',
@@ -50,7 +56,19 @@ export const getStaticProps = async () => {
     'excerpt',
   ])
 
+  const allTILs = getAllEntries('til', [
+    'title',
+    'date',
+    'slug',
+    'coverImage',
+    'excerpt',
+    'content',
+  ])
+
   return {
-    props: { allPosts },
+    props: {
+      allPosts,
+      allTILs,
+    },
   }
 }
