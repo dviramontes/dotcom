@@ -10,15 +10,15 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
-import type PostType from '../../interfaces/post'
+import type TILType from '../../interfaces/til'
 
 type Props = {
-  post: PostType
-  morePosts: PostType[]
+  post: TILType
+  morePosts: TILType[]
   preview?: boolean
 }
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function TIL({ post, morePosts, preview }: Props) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -33,13 +33,11 @@ export default function Post({ post, morePosts, preview }: Props) {
           <>
             <article className="mb-32">
               <Head>
-                <title>
-                  {post.title} | {CMS_NAME}
-                </title>
+                <title>TIL</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
-                title={post.title}
+                title={'TIL'}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
@@ -60,7 +58,7 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getEntryBySlug('posts', params.slug, [
+  const post = getEntryBySlug('til', params.slug, [
     'title',
     'date',
     'slug',
@@ -82,8 +80,8 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllEntries('posts', ['slug'])
-
+  const posts = getAllEntries('til', ['slug'])
+  console.log({ posts })
   return {
     paths: posts.map((post) => {
       return {

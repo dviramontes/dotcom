@@ -1,4 +1,5 @@
 import { CMS_NAME } from '../lib/constants'
+import SubIntro from './subintro'
 
 const Intro = () => {
   return (
@@ -6,9 +7,7 @@ const Intro = () => {
       <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
         Blog.
       </h1>
-      <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A software development blog by <b>David Viramontes</b>
-      </h4>
+      <SubIntro />
     </section>
   )
 }

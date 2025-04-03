@@ -75,17 +75,17 @@ To set up a new machine with your dotfiles:
 - `brew install stow`
 
 - Clone the dotfiles repository:
-   ```bash
-   git clone https://github.com/username/dotfiles.git ~/.dotfiles
-   cd ~/.dotfiles
-   ```
+  ```bash
+  git clone https://github.com/username/dotfiles.git ~/.dotfiles
+  cd ~/.dotfiles
+  ```
 - Install necessary packages using your preferred package manager
 
 - Use Stow to create symbolic links:
-   ```bash
-   stow */  # Or stow individual packages
-   ```
-   
+  ```bash
+  stow */  # Or stow individual packages
+  ```
+
 ## Conclusion
 
 GNU Stow provides an elegant solution for managing dotfiles. With a simple naming scheme and directory structure, you can maintain a clean home directory while keeping all configurations backed up and version controlled. If you're looking to organize your dotfiles across multiple machines, give GNU Stow a try.
