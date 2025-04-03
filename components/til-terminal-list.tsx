@@ -42,7 +42,9 @@ const TILTerminalList = ({ entries }: Props) => {
 
   return (
     <div className="mt-8 mb-12">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800"><Link href="/til">Today I Learned</Link></h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-800">
+        <Link href="/til">Today I Learned</Link>
+      </h2>
       <div className="bg-gray-900 text-gray-200 p-4 rounded-md font-mono text-sm overflow-x-auto">
         <div className="font-bold mb-2 text-gray-400">$ ls -l _til</div>
         {formattedEntries.length > 0 ? (

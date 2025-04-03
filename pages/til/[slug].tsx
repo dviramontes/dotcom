@@ -33,13 +33,11 @@ export default function TIL({ post, morePosts, preview }: Props) {
           <>
             <article className="mb-32">
               <Head>
-                <title>
-                  TIL
-                </title>
+                <title>TIL</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
-                title={"TIL"}
+                title={'TIL'}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
