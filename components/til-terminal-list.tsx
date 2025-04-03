@@ -56,14 +56,14 @@ const TILTerminalList = ({ entries }: Props) => {
             >
               <div className="flex flex-wrap">
                 <span className="text-blue-400 mr-2">.rw-r--r--</span>
-                <span className="text-green-400 mr-2">dav</span>
+                <span className="text-green-400 mr-2">dv</span>
                 <span className="text-yellow-400 mr-2">staff</span>
                 <span className="text-purple-400 mr-2">{entry.size}</span>
-                <span className="text-white underline decoration-dotted decoration-gray-500 hover:decoration-white">
+                <span className="text-gray-400 mr-2 underline decoration-dotted decoration-gray-500 hover:decoration-white">
                   {entry.name}
                 </span>
-                <span className="ml-2 text-gray-500 text-xs">
-                  [{entry.excerpt}]
+                <span className="ml-2 text-gray-200 font-medium text-sm">
+                  {entry.excerpt}
                 </span>
               </div>
             </Link>
