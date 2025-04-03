@@ -2,7 +2,6 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 import Header from '../components/header'
 import PostTitle from '../components/post-title'
-import Head from 'next/head'
 
 function About(): JSX.Element {
   return (
