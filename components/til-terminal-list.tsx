@@ -41,7 +41,7 @@ const TILTerminalList = ({ entries }: Props) => {
   }, [entries])
 
   return (
-    <div className="mt-8 mb-12">
+    <div className="mt-8 mb-12 max-w-[1300px]">
       <h2 className="text-2xl font-bold mb-4 text-gray-800">
         <Link href="/til">Today I Learned</Link>
       </h2>
