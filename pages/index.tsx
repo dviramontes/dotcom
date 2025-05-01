@@ -22,6 +22,7 @@ export default function Index({ allPosts, allTILs }: Props) {
       <Layout>
         <Head>
           <title>dviramontes.com</title>
+          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
         </Head>
         <Container>
           <Intro />
