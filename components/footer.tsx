@@ -50,6 +50,14 @@ const Footer = () => {
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
                 <a
+                  href="/feed.xml"
+                  className="font-bold hover:underline"
+                >
+                  RSS
+                </a>
+              </div>
+              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
+                <a
                   target="_blank"
                   href="https://dviramontes.bsky.social/"
                   className="font-bold hover:underline"

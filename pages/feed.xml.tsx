@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getAllEntries } from '../../lib/api'
-import type PostType from '../../interfaces/post'
-import type TILType from '../../interfaces/til'
+import { getAllEntries } from '../lib/api'
+import type PostType from '../interfaces/post'
+import type TILType from '../interfaces/til'
 
 const SITE_URL = 'https://dviramontes.com'
 
@@ -42,10 +42,11 @@ function generateRss(posts: PostType[], tils: TILType[]) {
 </rss>`
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+export default function Feed() {
+  return null
+}
+
+export async function getServerSideProps({ res }: { res: NextApiResponse }) {
   const posts = getAllEntries('posts', [
     'title',
     'date',
@@ -63,7 +64,12 @@ export default async function handler(
   ]) as unknown as TILType[]
 
   const rss = generateRss(posts, tils)
+
   res.setHeader('Content-Type', 'application/xml')
   res.write(rss)
   res.end()
+
+  return {
+    props: {},
+  }
 }
