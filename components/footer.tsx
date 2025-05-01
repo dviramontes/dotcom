@@ -49,10 +49,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <a
-                  href="/feed.xml"
-                  className="font-bold hover:underline"
-                >
+                <a href="/feed.xml" className="font-bold hover:underline">
                   RSS
                 </a>
               </div>
