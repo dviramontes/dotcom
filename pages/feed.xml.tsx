@@ -6,9 +6,10 @@ import type TILType from '../interfaces/til'
 const SITE_URL = 'https://dviramontes.com'
 
 function generateRss(posts: PostType[], tils: TILType[]) {
-  const allEntries = [...posts, ...tils].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  )
+  const allEntries = [
+    ...posts.map((post) => ({ ...post, type: 'post' })),
+    ...tils.map((til) => ({ ...til, type: 'til' })),
+  ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   return `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
@@ -21,12 +22,8 @@ function generateRss(posts: PostType[], tils: TILType[]) {
         (entry) => `
       <item>
         <title>${entry.title}</title>
-        <link>${SITE_URL}/${
-          entry.hasOwnProperty('content') ? 'til' : 'posts'
-        }/${entry.slug}</link>
-        <guid>${SITE_URL}/${
-          entry.hasOwnProperty('content') ? 'til' : 'posts'
-        }/${entry.slug}</guid>
+        <link>${SITE_URL}/${entry.type}/${entry.slug}</link>
+        <guid>${SITE_URL}/${entry.type}/${entry.slug}</guid>
         <pubDate>${new Date(entry.date).toUTCString()}</pubDate>
         <description><![CDATA[${entry.excerpt}]]></description>
         ${
