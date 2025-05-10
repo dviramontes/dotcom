@@ -23,8 +23,8 @@ export default function Index({ allPosts }: Props) {
         <article>
           <Container>
             <Header />
-            <article className="mb-32">
-              <div className="max-w-2xl mx-auto">
+            <article className="w-full">
+              <div className="max-w-4xl mx-auto">
                 {allPosts.length > 0 && <TILTerminalList entries={allPosts} />}
               </div>
             </article>
