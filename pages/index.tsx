@@ -14,62 +14,43 @@ type Props = {
   allTILs: TILType[]
 }
 
+const POST_FIELDS = ['title', 'date', 'slug', 'author', 'coverImage', 'excerpt']
+const TIL_FIELDS = ['title', 'date', 'slug', 'coverImage', 'excerpt', 'content']
+
 export default function Index({ allPosts, allTILs }: Props) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+  const [heroPost, ...morePosts] = allPosts
+
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>dviramontes.com</title>
-          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-        </Head>
-        <Container>
-          <Intro />
-          {allTILs.length > 0 && <TILTerminalList entries={allTILs} />}
-          {heroPost && (
-            <HeroPost
-              basePath="/posts"
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && (
-            <MorePosts posts={morePosts} basePath="/posts" />
-          )}
-        </Container>
-      </Layout>
-    </>
+    <Layout>
+      <Head>
+        <title>dviramontes.com</title>
+        <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      </Head>
+      <Container>
+        <Intro />
+        {allTILs.length > 0 && <TILTerminalList entries={allTILs} />}
+        {heroPost && (
+          <HeroPost
+            basePath="/posts"
+            title={heroPost.title}
+            coverImage={heroPost.coverImage}
+            date={heroPost.date}
+            author={heroPost.author}
+            slug={heroPost.slug}
+            excerpt={heroPost.excerpt}
+          />
+        )}
+        {morePosts.length > 0 && (
+          <MorePosts posts={morePosts} basePath="/posts" />
+        )}
+      </Container>
+    </Layout>
   )
 }
 
-export const getStaticProps = async () => {
-  const allPosts = getAllEntries('posts', [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-  ])
-
-  const allTILs = getAllEntries('til', [
-    'title',
-    'date',
-    'slug',
-    'coverImage',
-    'excerpt',
-    'content',
-  ])
-
-  return {
-    props: {
-      allPosts,
-      allTILs,
-    },
-  }
-}
+export const getStaticProps = async () => ({
+  props: {
+    allPosts: getAllEntries('posts', POST_FIELDS),
+    allTILs: getAllEntries('til', TIL_FIELDS),
+  },
+})

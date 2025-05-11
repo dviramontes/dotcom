@@ -33,14 +33,15 @@ export default function TIL({ post, morePosts, preview }: Props) {
           <>
             <article className="mb-32">
               <Head>
-                <title>TIL</title>
+                <title>{post.excerpt}</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
-                title={'TIL'}
+                title={post.excerpt}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
+                isTIL={true}
               />
               <PostBody content={post.content} />
             </article>
@@ -66,6 +67,7 @@ export async function getStaticProps({ params }: Params) {
     'content',
     'ogImage',
     'coverImage',
+    'excerpt',
   ])
   const content = await markdownToHtml(post.content || '')
 

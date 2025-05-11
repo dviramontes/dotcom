@@ -9,12 +9,13 @@ type Props = {
   coverImage: string
   date: string
   author: Author
+  isTIL?: boolean
 }
 
-const PostHeader = ({ title, coverImage, date, author }: Props) => {
+const PostHeader = ({ title, coverImage, date, author, isTIL }: Props) => {
   return (
     <>
-      <PostTitle>{title}</PostTitle>
+      <PostTitle isTIL={isTIL}>{title}</PostTitle>
       <div className="hidden md:block md:mb-12">
         <Avatar name={author.name} picture={author.picture} />
       </div>
