@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 import { getAllEntries } from '../lib/api'
 import type PostType from '../interfaces/post'
 import type TILType from '../interfaces/til'
@@ -7,7 +7,7 @@ const SITE_URL = 'https://dviramontes.com'
 
 function generateRss(posts: PostType[], tils: TILType[]) {
   const allEntries = [
-    ...posts.map((post) => ({ ...post, type: 'post' })),
+    ...posts.map((post) => ({ ...post, type: 'posts' })),
     ...tils.map((til) => ({ ...til, type: 'til' })),
   ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   return `<?xml version="1.0" encoding="UTF-8" ?>
