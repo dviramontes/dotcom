@@ -56,8 +56,8 @@ function About(): JSX.Element {
                 <a
                   className="underline hover:text-darkblue-300 duration-200 transition-colors"
                   target="_blank"
-                  rel="noreferrer"
-                  href="https://github.com/dviramontes/"
+                  rel="me"
+                  href="https://github.com/dviramontes"
                 >
                   GitHub
                 </a>

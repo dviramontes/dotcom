@@ -35,6 +35,7 @@ const Footer = () => {
                   rel="me"
                   target="_blank"
                   href="https://github.com/dviramontes"
+                  rel="me"
                   className="font-bold hover:underline"
                 >
                   GitHub
