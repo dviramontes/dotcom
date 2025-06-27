@@ -11,20 +11,20 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
     current: 'https://dviramontes.com',
     previous: {
       name: '←',
-      url: '#' // This would be dynamically determined
+      url: '#', // This would be dynamically determined
     },
     next: {
       name: '→',
-      url: '#' // This would be dynamically determined
+      url: '#', // This would be dynamically determined
     },
     random: {
       name: '🎲',
-      url: '#' // This would be dynamically determined
+      url: '#', // This would be dynamically determined
     },
     home: {
       name: '@',
-      url: '#' // This would point to the webring's home page
-    }
+      url: '#', // This would point to the webring's home page
+    },
   }
 
   return (
@@ -70,7 +70,6 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
             {webringData.next.name}
           </a>
         </div>
-
       </div>
     </div>
   )

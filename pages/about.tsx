@@ -3,6 +3,7 @@ import Container from '../components/container'
 import Header from '../components/header'
 import PostTitle from '../components/post-title'
 import Webring from '../components/webring'
+import HCard from '../components/h-card'
 
 function About(): JSX.Element {
   return (
@@ -13,6 +14,7 @@ function About(): JSX.Element {
         <article className="mb-32">
           <div className="max-w-2xl mx-auto">
             <h1 className="text-5xl">👋🏽 ¡Hola!</h1>
+            <HCard />
             <br />
             <p>
               My name is <b>David Viramontes</b>
@@ -21,27 +23,17 @@ function About(): JSX.Element {
               I&apos;m originally from México Mágico ✨ and I now live in
               beautiful Queens, NY 💐
               <br />
-              <br />
               I&apos;m a software developer with experience across various web
               technologies, most notably TypeScript, React, Node.js, Golang,
               Elixir, Clojure, Rust and Kotlin. Feel free to reach out about
-              work opportunities and projects via the email below.
+              work opportunities and open source projects.
             </p>
             <br />
             <p>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="mailto:dviramontes@gmail.com"
-                className="font-mono"
-              >
-                dviramontes[at]gmail[dot]com
-              </a>
+              Thanks for checking out my blog! Other places on the web you can
+              find me:
             </p>
             <br />
-            <p>Thanks for checking out my blog!</p>
-            <br />
-            <p>Other places on the web you can find me:</p>
             <ul>
               <li>
                 <a
