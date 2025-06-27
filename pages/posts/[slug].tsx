@@ -5,6 +5,7 @@ import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
+import Webring from '../../components/webring'
 import { getEntryBySlug, getAllEntries } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
@@ -45,6 +46,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 author={post.author}
               />
               <PostBody content={post.content} />
+              <Webring />
             </article>
           </>
         )}

@@ -2,6 +2,7 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 import Header from '../components/header'
 import PostTitle from '../components/post-title'
+import Webring from '../components/webring'
 
 function About(): JSX.Element {
   return (
@@ -104,6 +105,7 @@ function About(): JSX.Element {
               </li>
             </ul>
           </div>
+          <Webring />
         </article>
       </Container>
     </Layout>

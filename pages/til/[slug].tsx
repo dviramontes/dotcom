@@ -5,6 +5,7 @@ import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
+import Webring from '../../components/webring'
 import { getEntryBySlug, getAllEntries } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
@@ -44,6 +45,7 @@ export default function TIL({ post, morePosts, preview }: Props) {
                 isTIL={true}
               />
               <PostBody content={post.content} />
+              <Webring />
             </article>
           </>
         )}
