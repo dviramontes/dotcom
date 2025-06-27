@@ -31,6 +31,7 @@ const Alert = ({ preview }: Props) => {
             <>
               The source code for this blog is{' '}
               <a
+                rel="me"
                 href={`https://github.com/dviramontes/${BLOG_PATH}`}
                 className="underline hover:text-blue-600 duration-200 transition-colors"
               >
