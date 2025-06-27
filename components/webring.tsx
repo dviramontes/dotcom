@@ -10,19 +10,19 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
     name: 'IndieWeb Ring',
     current: 'https://dviramontes.com',
     previous: {
-      name: 'Previous Site →',
+      name: '←',
       url: '#' // This would be dynamically determined
     },
     next: {
-      name: '← Next Site',
+      name: '→',
       url: '#' // This would be dynamically determined
     },
     random: {
-      name: 'Random Site',
+      name: '🎲',
       url: '#' // This would be dynamically determined
     },
     home: {
-      name: 'About Ring',
+      name: '@',
       url: '#' // This would point to the webring's home page
     }
   }
@@ -31,10 +31,14 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
     <div className={`border-t border-neutral-200 pt-6 mt-8 ${className}`}>
       <div className="text-center">
         <h3 className="text-sm font-semibold text-neutral-600 mb-3">
-          Part of the {webringData.name}
+          {webringData.name}:
+          <p className="text-xs text-neutral-500 mt-2">
+            Connecting independent websites across the web
+          </p>
         </h3>
+
         <div className="flex justify-center items-center space-x-4 text-sm">
-          <a 
+          <a
             href={webringData.previous.url}
             className="font-bold hover:underline text-neutral-700 hover:text-black transition-colors"
             title="Visit the previous site in the ring"
@@ -42,7 +46,7 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
             {webringData.previous.name}
           </a>
           <span className="text-neutral-400">•</span>
-          <a 
+          <a
             href={webringData.home.url}
             className="font-bold hover:underline text-neutral-700 hover:text-black transition-colors"
             title="Learn more about this webring"
@@ -50,7 +54,7 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
             {webringData.home.name}
           </a>
           <span className="text-neutral-400">•</span>
-          <a 
+          <a
             href={webringData.random.url}
             className="font-bold hover:underline text-neutral-700 hover:text-black transition-colors"
             title="Visit a random site in the ring"
@@ -58,7 +62,7 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
             {webringData.random.name}
           </a>
           <span className="text-neutral-400">•</span>
-          <a 
+          <a
             href={webringData.next.url}
             className="font-bold hover:underline text-neutral-700 hover:text-black transition-colors"
             title="Visit the next site in the ring"
@@ -66,9 +70,7 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
             {webringData.next.name}
           </a>
         </div>
-        <p className="text-xs text-neutral-500 mt-2">
-          Connecting independent websites across the web
-        </p>
+
       </div>
     </div>
   )
