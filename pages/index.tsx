@@ -4,6 +4,7 @@ import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 import TILTerminalList from '../components/til-terminal-list'
+import Webring from '../components/webring'
 import { getAllEntries } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
@@ -43,6 +44,7 @@ export default function Index({ allPosts, allTILs }: Props) {
         {morePosts.length > 0 && (
           <MorePosts posts={morePosts} basePath="/posts" />
         )}
+        <Webring className="mb-16" />
       </Container>
     </Layout>
   )

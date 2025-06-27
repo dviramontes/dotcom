@@ -27,7 +27,7 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
   }
 
   return (
-    <div className={`border-t border-neutral-200 pt-6 mt-8 ${className}`}>
+    <div className={`pt-6 mb-8 mt-8 ${className}`}>
       <div className="text-center">
         <h3 className="text-sm font-semibold text-neutral-600 mb-3">
           {webringData.name}
