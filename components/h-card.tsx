@@ -48,20 +48,20 @@ const HCard = () => {
             LinkedIn
           </a>
           <a
-            href="https://mmmanyfold.com/be6b3833c9ca4d0684fbc7ae596d1203"
-            className="u-url hover:underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            mmmanyfold
-          </a>
-          <a
             href="https://dviramontes.bsky.social/"
             className="u-url hover:underline"
             target="_blank"
             rel="me"
           >
             Bluesky
+          </a>
+          <a
+            href="https://mmmanyfold.com/be6b3833c9ca4d0684fbc7ae596d1203"
+            className="u-url hover:underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            mmmanyfold
           </a>
           <a
             href="https://stackoverflow.com/users/1251467/dviramontes"

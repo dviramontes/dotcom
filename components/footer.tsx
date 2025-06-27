@@ -35,7 +35,6 @@ const Footer = () => {
                   rel="me"
                   target="_blank"
                   href="https://github.com/dviramontes"
-                  rel="me"
                   className="font-bold hover:underline"
                 >
                   GitHub
@@ -52,7 +51,6 @@ const Footer = () => {
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
                 <a
-                  rel="me"
                   target="_blank"
                   href="https://dviramontes.bsky.social/"
                   className="font-bold hover:underline"
