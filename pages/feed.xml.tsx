@@ -21,7 +21,9 @@ function generateRss(posts: PostType[], tils: TILType[]) {
       .map(
         (entry) => `
       <item>
-        <title>${entry.title}</title>
+        <title>${
+          entry.type === 'til' ? `TIL: ${entry.title}` : entry.title
+        }</title>
         <link>${SITE_URL}/${entry.type}/${entry.slug}</link>
         <guid>${SITE_URL}/${entry.type}/${entry.slug}</guid>
         <pubDate>${new Date(entry.date).toUTCString()}</pubDate>
