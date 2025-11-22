@@ -22,7 +22,7 @@ const TILTerminalList = ({ entries }: Props) => {
         <Link href="/til">Today I Learned</Link>
       </h2>
       <div className="bg-gray-900 text-gray-200 p-4 rounded-md font-mono text-sm overflow-x-auto">
-        <div className="font-bold mb-2 text-gray-400">$ ls -l _til</div>
+        <div className="font-bold mb-2 text-gray-400">$ ls til</div>
         {entries.length > 0 ? (
           entries.map((entry, index) => {
             const formatted = formatEntry(entry)
@@ -32,15 +32,20 @@ const TILTerminalList = ({ entries }: Props) => {
                 href={`/til/${entry.slug}`}
                 className="block hover:bg-gray-800 hover:text-white px-2 py-1 rounded transition-colors duration-150"
               >
-                <div className="flex flex-wrap">
-                  <span className="text-blue-400 mr-2">.rw-r--r--</span>
-                  <span className="text-green-400 mr-2">dv</span>
-                  <span className="text-yellow-400 mr-2">staff</span>
-                  <span className="text-purple-400 mr-2">{formatted.size}</span>
-                  <span className="text-gray-400 mr-2 underline decoration-dotted decoration-gray-500 hover:decoration-white">
+                <div className="flex flex-nowrap items-center">
+                  <span className="text-blue-400 mr-2 hidden sm:inline">
+                    .rw-r--r--
+                  </span>
+                  <span className="text-green-400 mr-2 hidden sm:inline">
+                    dv
+                  </span>
+                  <span className="text-purple-400 mr-2 hidden sm:inline">
+                    {formatted.size}
+                  </span>
+                  <span className="text-gray-400 mr-2 underline decoration-dotted decoration-gray-500 hover:decoration-white flex-shrink-0">
                     {formatted.name}
                   </span>
-                  <span className="ml-2 text-gray-200 font-medium text-sm">
+                  <span className="ml-2 text-gray-200 font-medium text-sm truncate">
                     {formatted.excerpt}
                   </span>
                 </div>
