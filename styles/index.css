@@ -25,14 +25,5 @@ h3 {
 }
 
 body {
-  background-color: bisque;
-}
-
-footer {
-  background-image: linear-gradient(115.58deg, bisque 0%, #7974a8 100.22%),
-    radial-gradient(92.72% 100% at 50% 0%, bisque 10%, #651200 100%),
-    radial-gradient(92.72% 100% at 50% 0%, bisque 0%, #820000 100%),
-    radial-gradient(109.21% 213.32% at 100% 0%, bisque 0%, #00c2ff 100%),
-    linear-gradient(127.43deg, #d50000 0%, #7856ff 100%);
-  background-blend-mode: lighten, overlay, lighten, screen, normal;
+  background-color: whitesmoke;
 }

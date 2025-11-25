@@ -65,3 +65,14 @@ export function getAllEntries(type: string, fields: string[] = []) {
       .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   )
 }
+
+export function getPreviousAndNextTIL(slug: string, fields: string[] = []) {
+  const allTILs = getAllEntries('til', ['slug', ...fields])
+  const currentIndex = allTILs.findIndex((til) => til.slug === slug)
+
+  const previousTIL = currentIndex > 0 ? allTILs[currentIndex - 1] : null
+  const nextTIL =
+    currentIndex < allTILs.length - 1 ? allTILs[currentIndex + 1] : null
+
+  return { previousTIL, nextTIL }
+}

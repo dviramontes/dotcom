@@ -4,9 +4,14 @@ import Container from '../../components/container'
 import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
+import TILPagination from '../../components/til-pagination'
 import Layout from '../../components/layout'
 import Webring from '../../components/webring'
-import { getEntryBySlug, getAllEntries } from '../../lib/api'
+import {
+  getEntryBySlug,
+  getAllEntries,
+  getPreviousAndNextTIL,
+} from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
@@ -16,10 +21,18 @@ import type TILType from '../../interfaces/til'
 type Props = {
   post: TILType
   morePosts: TILType[]
+  previousTIL: TILType | null
+  nextTIL: TILType | null
   preview?: boolean
 }
 
-export default function TIL({ post, morePosts, preview }: Props) {
+export default function TIL({
+  post,
+  morePosts,
+  previousTIL,
+  nextTIL,
+  preview,
+}: Props) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -45,6 +58,8 @@ export default function TIL({ post, morePosts, preview }: Props) {
                 isTIL={true}
               />
               <PostBody content={post.content} />
+              <TILPagination previousTIL={previousTIL} nextTIL={nextTIL} />
+              <hr className="border-[#458c70] border-t border-dashed mt-12 w-1/3 mx-auto" />
               <Webring />
             </article>
           </>
@@ -73,12 +88,20 @@ export async function getStaticProps({ params }: Params) {
   ])
   const content = await markdownToHtml(post.content || '')
 
+  const { previousTIL, nextTIL } = getPreviousAndNextTIL(params.slug, [
+    'title',
+    'slug',
+    'excerpt',
+  ])
+
   return {
     props: {
       post: {
         ...post,
         content,
       },
+      previousTIL: previousTIL || null,
+      nextTIL: nextTIL || null,
     },
   }
 }
