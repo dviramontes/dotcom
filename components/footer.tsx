@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-900 text-white">
+    <footer className="bg-gray-900 text-white">
       <Container>
         <div className="py-10 flex flex-col lg:flex-row items-center">
           <h3 className="text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
