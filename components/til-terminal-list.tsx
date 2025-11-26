@@ -3,9 +3,12 @@ import TILType from '../interfaces/til'
 
 type Props = {
   entries: TILType[]
+  limit?: number
 }
 
-const TILTerminalList = ({ entries }: Props) => {
+const TILTerminalList = ({ entries, limit }: Props) => {
+  const displayEntries = limit ? entries.slice(0, limit) : entries
+  const hasMore = limit && entries.length > limit
   const formatEntry = (entry: TILType) => ({
     name: `${entry.slug}.md`,
     size: `${Math.max(
@@ -23,8 +26,8 @@ const TILTerminalList = ({ entries }: Props) => {
       </h2>
       <div className="bg-gray-900 text-gray-200 p-4 rounded-md font-mono text-sm overflow-x-auto">
         <div className="font-bold mb-2 text-gray-400">$ ls til</div>
-        {entries.length > 0 ? (
-          entries.map((entry, index) => {
+        {displayEntries.length > 0 ? (
+          displayEntries.map((entry, index) => {
             const formatted = formatEntry(entry)
             return (
               <Link
@@ -54,6 +57,14 @@ const TILTerminalList = ({ entries }: Props) => {
           })
         ) : (
           <div className="text-gray-500">No TIL entries found</div>
+        )}
+        {hasMore && (
+          <Link
+            href="/til"
+            className="block text-gray-400 hover:text-white px-2 py-1 mt-1"
+          >
+            ... [show more]
+          </Link>
         )}
       </div>
     </div>

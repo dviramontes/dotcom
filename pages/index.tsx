@@ -29,7 +29,7 @@ export default function Index({ allPosts, allTILs }: Props) {
       </Head>
       <Container>
         <Intro />
-        {allTILs.length > 0 && <TILTerminalList entries={allTILs} />}
+        {allTILs.length > 0 && <TILTerminalList entries={allTILs} limit={5} />}
         {heroPost && (
           <HeroPost
             basePath="/posts"
