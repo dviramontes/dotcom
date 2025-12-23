@@ -23,9 +23,6 @@ export default function Index({ allPosts }: Props) {
             <Header />
             <article className="w-full">
               <div className="max-w-4xl mx-auto">
-                <h1 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight md:leading-none mb-8 text-center md:text-left">
-                  Today I Learned
-                </h1>
                 {allPosts.length > 0 && <TILTerminalList entries={allPosts} />}
               </div>
             </article>
