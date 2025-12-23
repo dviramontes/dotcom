@@ -30,6 +30,7 @@ export default function Index({ allPosts, allTILs }: Props) {
       <Container>
         <Intro />
         {allTILs.length > 0 && <TILTerminalList entries={allTILs} limit={5} />}
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Posts</h2>
         {heroPost && (
           <HeroPost
             basePath="/posts"

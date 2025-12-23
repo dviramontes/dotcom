@@ -31,6 +31,11 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
+                <Link href="/tools">
+                  <span className="font-bold hover:underline">Tools</span>
+                </Link>
+              </div>
+              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
                 <a
                   rel="me"
                   target="_blank"
