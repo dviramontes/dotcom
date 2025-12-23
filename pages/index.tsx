@@ -4,6 +4,7 @@ import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 import TILTerminalList from '../components/til-terminal-list'
+import ToolsPeriodicTable from '../components/tools-periodic-table'
 import Webring from '../components/webring'
 import { getAllEntries } from '../lib/api'
 import Head from 'next/head'
@@ -30,6 +31,7 @@ export default function Index({ allPosts, allTILs }: Props) {
       <Container>
         <Intro />
         {allTILs.length > 0 && <TILTerminalList entries={allTILs} limit={5} />}
+        <ToolsPeriodicTable />
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Posts</h2>
         {heroPost && (
           <HeroPost
