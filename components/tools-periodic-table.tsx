@@ -57,7 +57,11 @@ const ToolsPeriodicTable = ({ size = 'default', showTitle = true }: Props) => {
           <Link href="/tools">Tools</Link>
         </h2>
       )}
-      <div className={`flex flex-wrap mx-[5%] scale-50 md:scale-100 origin-top-left ${isSmall ? 'gap-1.5' : 'gap-3'}`}>
+      <div
+        className={`flex flex-wrap mx-[5%] scale-50 md:scale-100 origin-top-left ${
+          isSmall ? 'gap-1.5' : 'gap-3'
+        }`}
+      >
         {tools.map((tool, index) => (
           <Link
             key={tool.slug}
