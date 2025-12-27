@@ -64,6 +64,16 @@ function ToolPage(): JSX.Element {
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
               {tool.description}
             </p>
+            <div className="flex justify-end">
+              <a
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-2 border-2 border-black text-black font-semibold hover:bg-black hover:text-white transition-colors"
+              >
+                visit tool
+              </a>
+            </div>
             <div className="mb-16">
               <iframe
                 src={tool.url}
