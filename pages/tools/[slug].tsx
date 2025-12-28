@@ -15,6 +15,31 @@ type Tool = {
 
 const TOOLS_JSON_URL = 'https://dviramontes.github.io/tools/tools.json'
 
+function renderDescriptionWithLinks(text: string): (string | JSX.Element)[] {
+  const urlRegex = /(https?:\/\/[^\s]+)/g
+  const parts = text.split(urlRegex)
+  return parts.map((part, index) => {
+    if (part.match(/^https?:\/\//)) {
+      const cleanUrl = part.replace(/[.,;:!?]+$/, '')
+      const trailing = part.slice(cleanUrl.length)
+      return (
+        <span key={index}>
+          <a
+            href={cleanUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline hover:text-blue-800 transition duration-300 ease-in-out"
+          >
+            {cleanUrl}
+          </a>
+          {trailing}
+        </span>
+      )
+    }
+    return part
+  })
+}
+
 function ToolPage(): JSX.Element {
   const router = useRouter()
   const { slug } = router.query
@@ -61,8 +86,8 @@ function ToolPage(): JSX.Element {
               ← Back to Tools
             </Link>
             <PostTitle>{tool.name}</PostTitle>
-            <p className="text-lg leading-relaxed mb-6 w-full max-w-2xl break-words overflow-hidden">
-              {tool.description}
+            <p className="text-lg leading-relaxed mb-6 w-full max-w-2xl break-words overflow-hidden text-gray-500">
+              {renderDescriptionWithLinks(tool.description)}
             </p>
             <div className="flex justify-end">
               <a

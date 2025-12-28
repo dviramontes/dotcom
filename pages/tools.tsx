@@ -44,7 +44,7 @@ function Tools(): JSX.Element {
         <article className="mb-32">
           <div className="max-w-2xl mx-auto">
             <ToolsPeriodicTable size="small" showTitle={false} />
-            <p className="text-lg mb-8 text-gray-600 dark:text-gray-400">
+            <p className="text-lg leading-relaxed mb-8">
               Small, self-contained, single-purpose tools. Each one is a
               standalone HTML file with no dependencies.
             </p>
@@ -59,10 +59,10 @@ function Tools(): JSX.Element {
                   href={`/tools/${tool.slug}`}
                   className="block p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
                 >
-                  <h2 className="text-xl font-semibold mb-2">{tool.name}</h2>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    {tool.description}
-                  </p>
+                  <h2 className="text-xl font-semibold mb-2 text-[#458c70]">
+                    {tool.name}
+                  </h2>
+                  <p className="text-base leading-relaxed text-gray-500">{tool.description}</p>
                 </Link>
               ))}
             </div>
