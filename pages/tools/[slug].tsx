@@ -61,7 +61,7 @@ function ToolPage(): JSX.Element {
               ← Back to Tools
             </Link>
             <PostTitle>{tool.name}</PostTitle>
-            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
+            <p className="text-lg leading-relaxed mb-6 w-full max-w-2xl break-words overflow-hidden">
               {tool.description}
             </p>
             <div className="flex justify-end">
@@ -69,9 +69,22 @@ function ToolPage(): JSX.Element {
                 href={tool.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-2 border-2 border-black text-black font-semibold hover:bg-black hover:text-white transition-colors"
+                className="group inline-flex items-center gap-2 px-5 py-2 bg-black text-white font-medium tracking-wide text-sm uppercase hover:shadow-md hover:translate-y-[-2px] transition-all duration-200"
               >
                 visit tool
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
               </a>
             </div>
             <div className="mb-16">
