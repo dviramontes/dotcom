@@ -86,7 +86,7 @@ function ToolPage(): JSX.Element {
               ← Back to Tools
             </Link>
             <PostTitle>{tool.name}</PostTitle>
-            <p className="text-lg leading-relaxed mb-6 w-full max-w-2xl break-words overflow-hidden text-gray-500">
+            <p className="text-lg leading-relaxed mb-6 w-full break-words overflow-hidden text-gray-500">
               {renderDescriptionWithLinks(tool.description)}
             </p>
             <div className="flex justify-end">
@@ -94,7 +94,7 @@ function ToolPage(): JSX.Element {
                 href={tool.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-5 py-2 bg-black text-white font-medium tracking-wide text-sm uppercase hover:shadow-md hover:translate-y-[-2px] transition-all duration-200"
+                className="group inline-flex items-center gap-2 px-5 py-2 bg-black text-white font-medium tracking-wide text-sm uppercase hover:shadow-md transition-all duration-200"
               >
                 visit tool
                 <svg
@@ -115,7 +115,7 @@ function ToolPage(): JSX.Element {
             <div className="mb-16">
               <iframe
                 src={tool.url}
-                className="w-full border border-gray-200 dark:border-gray-700 rounded-lg"
+                className="w-full border border-gray-200 dark:border-gray-700"
                 style={{ height: '80vh' }}
                 title={tool.name}
               />

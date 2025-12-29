@@ -62,7 +62,9 @@ function Tools(): JSX.Element {
                   <h2 className="text-xl font-semibold mb-2 text-[#458c70]">
                     {tool.name}
                   </h2>
-                  <p className="text-base leading-relaxed text-gray-500">{tool.description}</p>
+                  <p className="text-base leading-relaxed text-gray-500">
+                    {tool.description}
+                  </p>
                 </Link>
               ))}
             </div>
