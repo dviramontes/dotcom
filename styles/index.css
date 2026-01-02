@@ -13,6 +13,13 @@
 body {
   font-family: 'Server Mono', monospace;
   background-color: whitesmoke;
+  background-image: repeating-radial-gradient(
+    circle at 0 0,
+    #c8c8d020 0,
+    #c8c8d020 1px,
+    transparent 2px,
+    transparent 48px
+  );
 }
 
 pre code {
