@@ -14,10 +14,6 @@ const HCard = () => {
             <span className="p-name">David Viramontes</span>
           </a>
         </div>
-        <div className="text-sm text-neutral-600">
-          <span className="p-locality">Queens</span>,{' '}
-          <span className="p-region">NY</span>
-        </div>
         <div className="text-sm">
           <span className="p-job-title">Software Developer</span>
         </div>
