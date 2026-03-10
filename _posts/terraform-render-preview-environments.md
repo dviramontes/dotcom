@@ -29,10 +29,10 @@ The pattern is straightforward:
 Each preview gets its own Terraform state file (keyed by PR number), so multiple previews can coexist without stepping on each other.
 
 ```markdown
-PR opened  => terraform apply  (state: pr-123.tfstate)  => preview up
-PR updated => terraform apply  (state: pr-123.tfstate)  => preview updated
-PR closed  => terraform destroy (state: pr-123.tfstate) => preview gone
-push main  => terraform apply  (state: prod.tfstate)    => prod updated
+PR opened => terraform apply (state: pr-123.tfstate) => preview up
+PR updated => terraform apply (state: pr-123.tfstate) => preview updated
+PR closed => terraform destroy (state: pr-123.tfstate) => preview gone
+push main => terraform apply (state: prod.tfstate) => prod updated
 ```
 
 ### The module
