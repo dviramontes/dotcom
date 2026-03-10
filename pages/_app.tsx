@@ -18,6 +18,7 @@ import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-markdown'
 import 'prismjs/components/prism-yaml'
+import 'prismjs/components/prism-hcl'
 // Plugins
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 
