@@ -21,6 +21,14 @@ type Props = {
 
 export default function Post({ post, morePosts, preview }: Props) {
   const router = useRouter()
+  const pageTitle = `${post.title} | ${CMS_NAME}`
+  const postImage = post.ogImage?.url || post.coverImage
+  const ogImageUrl = postImage
+    ? postImage.startsWith('http')
+      ? postImage
+      : `https://www.dviramontes.com${postImage}`
+    : undefined
+
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -34,10 +42,10 @@ export default function Post({ post, morePosts, preview }: Props) {
           <>
             <article className="mb-32">
               <Head>
-                <title>
-                  {post.title} | {CMS_NAME}
-                </title>
-                <meta property="og:image" content={post.ogImage.url} />
+                <title>{pageTitle}</title>
+                {ogImageUrl && (
+                  <meta key="og:image" property="og:image" content={ogImageUrl} />
+                )}
               </Head>
               <PostHeader
                 title={post.title}

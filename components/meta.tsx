@@ -38,7 +38,7 @@ const Meta = () => {
         name="description"
         content="A software development blog by David Viramontes"
       />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta key="og:image" property="og:image" content={HOME_OG_IMAGE_URL} />
     </Head>
   )
 }
