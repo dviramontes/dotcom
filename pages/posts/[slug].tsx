@@ -44,7 +44,11 @@ export default function Post({ post, morePosts, preview }: Props) {
               <Head>
                 <title>{pageTitle}</title>
                 {ogImageUrl && (
-                  <meta key="og:image" property="og:image" content={ogImageUrl} />
+                  <meta
+                    key="og:image"
+                    property="og:image"
+                    content={ogImageUrl}
+                  />
                 )}
               </Head>
               <PostHeader
