@@ -6,7 +6,6 @@ const Header = () => {
       <Link href="/">
         <span className="hover:underline">Blog</span>
       </Link>
-      .
     </h2>
   )
 }
