@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app'
 import { useEffect } from 'react'
+import { ThemeProvider } from '../components/theme-toggle'
 import '../styles/index.css'
 import '../styles/prism.css'
 
@@ -28,5 +29,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     Prism.highlightAll()
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
 }

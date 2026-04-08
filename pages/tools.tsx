@@ -48,7 +48,11 @@ function Tools(): JSX.Element {
               Small, self-contained, single-purpose tools. Each one is a
               standalone HTML file with no dependencies.
             </p>
-            {loading && <p className="text-gray-500">Loading tools...</p>}
+            {loading && (
+              <p className="text-stone-500 dark:text-stone-400">
+                Loading tools...
+              </p>
+            )}
             {error && (
               <p className="text-red-500">Error loading tools: {error}</p>
             )}
@@ -57,12 +61,12 @@ function Tools(): JSX.Element {
                 <Link
                   key={tool.slug}
                   href={`/tools/${tool.slug}`}
-                  className="block p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+                  className="block rounded-lg border border-stone-300/80 bg-white/60 p-6 transition-colors hover:border-stone-500 dark:border-stone-700 dark:bg-stone-900/50 dark:hover:border-stone-500"
                 >
                   <h2 className="text-xl font-semibold mb-2 text-[#458c70]">
                     {tool.name}
                   </h2>
-                  <p className="text-base leading-relaxed text-gray-500">
+                  <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">
                     {tool.description}
                   </p>
                 </Link>

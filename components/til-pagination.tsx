@@ -15,7 +15,7 @@ const TILPagination = ({ previousTIL, nextTIL }: Props) => {
             href={`/til/${previousTIL.slug}`}
             className="group flex flex-col"
           >
-            <span className="text-sm text-neutral-700 group-hover:text-black group-hover:underline transition-colors truncate max-w-[200px]">
+            <span className="max-w-[200px] truncate text-sm text-stone-600 transition-colors group-hover:text-black group-hover:underline dark:text-stone-300 dark:group-hover:text-white">
               ← {previousTIL.title || previousTIL.excerpt}
             </span>
           </Link>
@@ -27,7 +27,7 @@ const TILPagination = ({ previousTIL, nextTIL }: Props) => {
             href={`/til/${nextTIL.slug}`}
             className="group flex flex-col items-end"
           >
-            <span className="text-sm text-neutral-700 group-hover:text-black group-hover:underline transition-colors truncate max-w-[200px]">
+            <span className="max-w-[200px] truncate text-sm text-stone-600 transition-colors group-hover:text-black group-hover:underline dark:text-stone-300 dark:group-hover:text-white">
               {nextTIL.title || nextTIL.excerpt} →
             </span>
           </Link>

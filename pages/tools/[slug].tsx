@@ -75,18 +75,20 @@ function ToolPage(): JSX.Element {
     <Layout preview={false}>
       <Container>
         <Header />
-        {loading && <p className="text-gray-500">Loading...</p>}
+        {loading && (
+          <p className="text-stone-500 dark:text-stone-400">Loading...</p>
+        )}
         {error && <p className="text-red-500">{error}</p>}
         {tool && (
           <>
             <Link
               href="/tools"
-              className="text-gray-500 hover:text-gray-700 mb-4 inline-block"
+              className="mb-4 inline-block text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-100"
             >
               ← Back to Tools
             </Link>
             <PostTitle>{tool.name}</PostTitle>
-            <p className="text-lg leading-relaxed mb-6 w-full break-words overflow-hidden text-gray-500">
+            <p className="mb-6 w-full break-words overflow-hidden text-lg leading-relaxed text-stone-600 dark:text-stone-300">
               {renderDescriptionWithLinks(tool.description)}
             </p>
             <div className="flex justify-end">
@@ -94,7 +96,7 @@ function ToolPage(): JSX.Element {
                 href={tool.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-5 py-2 bg-black text-white font-medium tracking-wide text-sm uppercase hover:shadow-md transition-all duration-200"
+                className="group inline-flex items-center gap-2 bg-stone-950 px-5 py-2 text-sm font-medium uppercase tracking-wide text-white transition-all duration-200 hover:shadow-md dark:bg-stone-100 dark:text-stone-950"
               >
                 visit tool
                 <svg
@@ -115,7 +117,7 @@ function ToolPage(): JSX.Element {
             <div className="mb-16">
               <iframe
                 src={tool.url}
-                className="w-full border border-gray-200 dark:border-gray-700"
+                className="w-full rounded-lg border border-stone-300 dark:border-stone-700"
                 style={{ height: '80vh' }}
                 title={tool.name}
               />

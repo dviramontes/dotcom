@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="border-t border-stone-300/70 bg-[#171717] text-white dark:border-stone-800 dark:bg-black">
       <Container>
         <div className="py-10 flex flex-col lg:flex-row items-center">
           <h3 className="text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="grid grid-cols-3 gap-y-6 gap-x-2 lg:flex lg:flex-row w-full lg:space-x-2 items-center px-4 lg:px-0">
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
                 <Link href="/about">
-                  <span className="border border-white text-white hover:bg-white hover:text-black font-bold py-3 px-8 lg:px-8 duration-200 transition-colors">
+                  <span className="border border-white px-8 py-3 font-bold text-white transition-colors duration-200 hover:bg-white hover:text-black lg:px-8">
                     About
                   </span>
                 </Link>

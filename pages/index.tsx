@@ -32,7 +32,9 @@ export default function Index({ allPosts, allTILs }: Props) {
         <Intro />
         {allTILs.length > 0 && <TILTerminalList entries={allTILs} limit={5} />}
         <ToolsPeriodicTable />
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">Posts</h2>
+        <h2 className="mb-4 text-2xl font-bold text-stone-800 dark:text-stone-100">
+          Posts
+        </h2>
         {heroPost && (
           <HeroPost
             basePath="/posts"

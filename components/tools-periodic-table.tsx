@@ -50,7 +50,7 @@ const ToolsPeriodicTable = ({ size = 'default', showTitle = true }: Props) => {
     <div className={isSmall ? 'mb-6' : 'mt-8 mb-12'}>
       {showTitle && (
         <h2
-          className={`font-bold text-gray-800 ${
+          className={`font-bold text-stone-800 dark:text-stone-100 ${
             isSmall ? 'text-lg mb-3' : 'text-2xl mb-6'
           }`}
         >

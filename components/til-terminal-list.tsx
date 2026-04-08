@@ -21,11 +21,11 @@ const TILTerminalList = ({ entries, limit }: Props) => {
 
   return (
     <div className="mt-8 mb-12 max-w-[1300px]">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">
+      <h2 className="mb-4 text-2xl font-bold text-stone-800 dark:text-stone-100">
         <Link href="/til">Today I Learned</Link>
       </h2>
-      <div className="bg-gray-900 text-gray-200 p-4 rounded-md font-mono text-sm overflow-x-auto">
-        <div className="font-bold mb-2 text-gray-400">$ ls til</div>
+      <div className="overflow-x-auto rounded-md border border-[#2f2926] bg-[#1c1917] p-4 font-mono text-sm text-[#f5f5f4] shadow-sm dark:border-[#44403c]">
+        <div className="mb-2 font-bold text-[#b8b0aa]">$ ls til</div>
         {displayEntries.length > 0 ? (
           displayEntries.map((entry, index) => {
             const formatted = formatEntry(entry)
@@ -33,7 +33,7 @@ const TILTerminalList = ({ entries, limit }: Props) => {
               <Link
                 key={index}
                 href={`/til/${entry.slug}`}
-                className="block hover:bg-gray-800 hover:text-white px-2 py-1 rounded transition-colors duration-150"
+                className="block rounded px-2 py-1 transition-colors duration-150 hover:bg-[#2f2926] hover:text-white"
               >
                 <div className="flex flex-nowrap items-center">
                   <span className="text-blue-400 mr-2 hidden sm:inline">
@@ -45,10 +45,10 @@ const TILTerminalList = ({ entries, limit }: Props) => {
                   <span className="text-purple-400 mr-2 hidden sm:inline">
                     {formatted.size}
                   </span>
-                  <span className="text-gray-400 mr-2 underline decoration-dotted decoration-gray-500 hover:decoration-white flex-shrink-0">
+                  <span className="mr-2 flex-shrink-0 text-[#b8b0aa] underline decoration-dotted decoration-[#6b625d] hover:decoration-white">
                     {formatted.name}
                   </span>
-                  <span className="ml-2 text-gray-200 font-medium text-sm truncate">
+                  <span className="ml-2 truncate text-sm font-medium text-[#f5f5f4]">
                     {formatted.excerpt}
                   </span>
                 </div>
@@ -56,12 +56,14 @@ const TILTerminalList = ({ entries, limit }: Props) => {
             )
           })
         ) : (
-          <div className="text-gray-500">No TIL entries found</div>
+          <div className="text-[#8f8680] dark:text-stone-400">
+            No TIL entries found
+          </div>
         )}
         {hasMore && (
           <Link
             href="/til"
-            className="block text-gray-400 hover:text-white px-2 py-1 mt-1"
+            className="mt-1 block px-2 py-1 text-[#b8b0aa] hover:text-white"
           >
             ... [show more]
           </Link>
