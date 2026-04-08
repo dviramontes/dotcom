@@ -63,7 +63,7 @@ function Tools(): JSX.Element {
                   href={`/tools/${tool.slug}`}
                   className="block rounded-lg border border-stone-300/80 bg-white/60 p-6 transition-colors hover:border-stone-500 dark:border-stone-700 dark:bg-stone-900/50 dark:hover:border-stone-500"
                 >
-                  <h2 className="text-xl font-semibold mb-2 text-[#458c70]">
+                  <h2 className="mb-2 text-xl font-semibold text-brand">
                     {tool.name}
                   </h2>
                   <p className="text-base leading-relaxed text-stone-600 dark:text-stone-300">

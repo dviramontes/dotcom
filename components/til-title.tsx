@@ -12,7 +12,7 @@ const TILTitle = ({ children }: Props) => {
   return (
     <h1 className={`${baseClasses} ${tilSizeClasses}`}>
       <span className="text-stone-800 dark:text-stone-100">TIL: </span>
-      <span className="text-[#458c70]">{children}</span>
+      <span className="text-brand">{children}</span>
     </h1>
   )
 }

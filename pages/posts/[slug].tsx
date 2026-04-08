@@ -58,7 +58,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 author={post.author}
               />
               <PostBody content={post.content} />
-              <hr className="border-[#458c70] border-t border-dashed mt-12 w-1/3 mx-auto" />
+              <hr className="mx-auto mt-12 w-1/3 border-t border-dashed border-brand" />
               <Webring />
             </article>
           </>

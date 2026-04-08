@@ -23,7 +23,7 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
       <div className="flex items-center justify-center space-x-3 text-sm text-stone-500 dark:text-stone-400">
         <a
           href={webringData.home.url}
-          className="font-bold text-stone-700 transition-colors hover:text-black hover:underline dark:text-stone-300 dark:hover:text-white"
+          className="font-bold text-stone-700 transition-colors hover:text-stone-950 hover:underline dark:text-stone-300 dark:hover:text-white"
           title="Learn more about this webring"
         >
           {webringData.home.name}
@@ -34,7 +34,7 @@ const Webring: React.FC<WebringProps> = ({ className = '' }) => {
 
         <a
           href={webringData.random.url}
-          className="font-bold text-stone-700 transition-colors hover:text-black hover:underline dark:text-stone-300 dark:hover:text-white"
+          className="font-bold text-stone-700 transition-colors hover:text-stone-950 hover:underline dark:text-stone-300 dark:hover:text-white"
           title="Visit a random site in the ring"
         >
           {webringData.random.name}

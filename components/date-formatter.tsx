@@ -8,7 +8,7 @@ const DateFormatter = ({ dateString }: Props) => {
   const date = parseISO(dateString)
   return (
     <time
-      className="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-sm font-medium"
+      className="inline-flex items-center rounded-full bg-stone-200 px-2 py-0.5 text-sm font-medium text-stone-800 dark:bg-stone-800 dark:text-stone-200"
       dateTime={dateString}
     >
       <svg

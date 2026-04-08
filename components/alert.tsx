@@ -10,8 +10,8 @@ const Alert = ({ preview }: Props) => {
   return (
     <div
       className={cn('border-b', {
-        'bg-neutral-800 border-neutral-800 text-white': preview,
-        'bg-neutral-50': !preview,
+        'border-stone-800 bg-stone-800 text-white': preview,
+        'border-stone-200 bg-stone-100 text-stone-800': !preview,
       })}
     >
       <Container>
@@ -21,7 +21,7 @@ const Alert = ({ preview }: Props) => {
               This page is a preview.{' '}
               <a
                 href="/api/exit-preview"
-                className="underline hover:text-teal-300 duration-200 transition-colors"
+                className="underline transition-colors duration-200 hover:text-teal-300"
               >
                 Click here
               </a>{' '}
@@ -33,7 +33,7 @@ const Alert = ({ preview }: Props) => {
               <a
                 rel="me"
                 href={`https://github.com/dviramontes/${BLOG_PATH}`}
-                className="underline hover:text-blue-600 duration-200 transition-colors"
+                className="underline transition-colors duration-200 hover:text-brand"
               >
                 available on GitHub
               </a>

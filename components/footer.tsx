@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="grid grid-cols-3 gap-y-6 gap-x-2 lg:flex lg:flex-row w-full lg:space-x-2 items-center px-4 lg:px-0">
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
                 <Link href="/about">
-                  <span className="border border-white px-8 py-3 font-bold text-white transition-colors duration-200 hover:bg-white hover:text-black lg:px-8">
+                  <span className="border border-white px-8 py-3 font-bold text-white transition-colors duration-200 hover:bg-white hover:text-stone-950 lg:px-8">
                     About
                   </span>
                 </Link>

@@ -95,7 +95,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-      className="inline-flex items-center gap-2 rounded-full border border-stone-300/80 bg-white/90 px-3 py-2 text-sm font-semibold text-stone-700 shadow-sm backdrop-blur transition-colors hover:border-stone-400 hover:text-stone-950 dark:border-stone-700 dark:bg-stone-900/90 dark:text-stone-200 dark:hover:border-stone-500 dark:hover:text-white"
+      className="inline-flex items-center gap-2 rounded-full border border-stone-800/90 bg-stone-950/90 px-3 py-2 text-sm font-semibold text-stone-100 shadow-sm backdrop-blur transition-colors hover:border-stone-700 hover:text-white dark:border-stone-300/80 dark:bg-white/90 dark:text-stone-800 dark:hover:border-stone-400 dark:hover:text-stone-950"
     >
       <span aria-hidden="true">{isDark ? '☀️' : '🌙'}</span>
     </button>
