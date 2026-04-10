@@ -81,8 +81,11 @@ git branch -d PROJ-2152
 Getting into the habit of removing worktrees after merging prevents a cluttered
 working directory and the confusion that comes with it.
 
-## Worth Adding to Your Workflow
+## Preamble TUI: A Worktree Browser
 
-Worktrees hit a sweet spot: low setup cost, meaningful reduction in context-switching
-friction, and a natural fit for the way modern development (and AI-assisted
-development in particular) increasingly demands parallel workstreams.
+Worktrees hit a sweet spot: low setup cost, meaningful reduction in context-switching, and a natural fit for AI-assisted development, which increasingly demands parallel workstreams.
+
+One thing that fell out of this workflow for me was `pre-amble`, a small terminal UI for worktree management. Pre-amble makes it easier to navigate and set up new worktrees.
+It shows the branch and most recent commit, and lets me create, open, refresh, or remove worktrees without git commands. Source: [github.com/dviramontes/preamble](https://github.com/dviramontes/preamble).
+
+![pre-amble worktree browser](/assets/blog/using-git-worktrees/pre-amble.png)
