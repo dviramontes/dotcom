@@ -3,7 +3,9 @@ import Link from 'next/link'
 const HCard = () => {
   return (
     <div className="h-card my-8 rounded-lg border border-violet-300 bg-violet-100 p-6 text-stone-900 shadow-sm dark:border-violet-900/80 dark:!bg-[#2b173f] dark:text-stone-100">
-      <h2 className="text-xl font-bold mb-4 underline underline-offset-4">Contact</h2>
+      <h2 className="text-xl font-bold mb-4 underline underline-offset-4">
+        Contact
+      </h2>
       <div className="space-y-2">
         <div>
           <a
