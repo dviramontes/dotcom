@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 const HCard = () => {
   return (
-    <div className="h-card my-8 rounded-lg border border-violet-300 bg-violet-100 p-6 text-stone-900 shadow-sm dark:border-violet-900/80 dark:bg-violet-950/40 dark:text-stone-100">
-      <h2 className="text-xl font-bold mb-4">Contact</h2>
+    <div className="h-card my-8 rounded-lg border border-violet-300 bg-violet-100 p-6 text-stone-900 shadow-sm dark:border-violet-900/80 dark:!bg-[#2b173f] dark:text-stone-100">
+      <h2 className="text-xl font-bold mb-4 underline underline-offset-4">Contact</h2>
       <div className="space-y-2">
         <div>
           <a
@@ -52,7 +52,7 @@ const HCard = () => {
             Bluesky
           </a>
           <a
-            href="https://mmmanyfold.com/be6b3833c9ca4d0684fbc7ae596d1203"
+            href="https://mmmanyfold.com"
             className="u-url hover:underline"
             target="_blank"
             rel="noreferrer"
