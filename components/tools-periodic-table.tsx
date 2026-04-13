@@ -58,8 +58,8 @@ const ToolsPeriodicTable = ({ size = 'default', showTitle = true }: Props) => {
         </h2>
       )}
       <div
-        className={`flex flex-wrap mx-[5%] scale-50 md:scale-100 origin-top-left ${
-          isSmall ? 'gap-1.5' : 'gap-3'
+        className={`flex flex-wrap mx-[5%] origin-top-left ${
+          isSmall ? 'scale-75 gap-2 sm:scale-100 sm:gap-1.5' : 'gap-3'
         }`}
       >
         {tools.map((tool, index) => (
@@ -72,20 +72,20 @@ const ToolsPeriodicTable = ({ size = 'default', showTitle = true }: Props) => {
             <div
               className={`bg-gradient-to-br from-emerald-500 to-emerald-700 hover:from-emerald-400 hover:to-emerald-600 rounded flex flex-col items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 ${
                 isSmall
-                  ? 'w-8 h-9 p-0.5 rounded-sm'
+                  ? 'w-10 h-11 p-1 rounded-md'
                   : 'w-16 h-18 p-2 rounded-lg'
               }`}
             >
               <span
                 className={`text-emerald-100 font-mono ${
-                  isSmall ? 'text-[5px]' : 'text-[10px]'
+                  isSmall ? 'text-[6px]' : 'text-[10px]'
                 }`}
               >
                 {index + 1}
               </span>
               <span
                 className={`font-bold text-white leading-none ${
-                  isSmall ? 'text-xs' : 'text-2xl'
+                  isSmall ? 'text-sm' : 'text-2xl'
                 }`}
               >
                 {getElementSymbol(tool.name)}

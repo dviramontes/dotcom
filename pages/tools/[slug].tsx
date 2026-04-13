@@ -96,7 +96,7 @@ function ToolPage(): JSX.Element {
                 href={tool.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 bg-stone-950 px-5 py-2 text-sm font-medium uppercase tracking-wide text-white transition-all duration-200 hover:shadow-md dark:bg-stone-100 dark:text-stone-950"
+                className="group inline-flex items-center gap-2 border border-stone-950 bg-stone-950 px-5 py-2 text-sm font-medium uppercase tracking-wide text-white transition-all duration-200 hover:shadow-md dark:border-stone-200 dark:bg-stone-900"
               >
                 visit tool
                 <svg
