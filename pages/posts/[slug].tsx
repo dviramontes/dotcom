@@ -1,25 +1,21 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
-import PostBody from '../../components/post-body'
 import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
-import Webring from '../../components/webring'
+import EntryArticle from '../../components/entry-article'
 import { getEntryBySlug, getAllEntries } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import type PostType from '../../interfaces/post'
 
 type Props = {
   post: PostType
-  morePosts: PostType[]
   preview?: boolean
 }
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post, preview }: Props) {
   const router = useRouter()
   const pageTitle = `${post.title} | ${CMS_NAME}`
   const postImage = post.ogImage?.url || post.coverImage
@@ -39,29 +35,15 @@ export default function Post({ post, morePosts, preview }: Props) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
-            <article className="mb-32">
-              <Head>
-                <title>{pageTitle}</title>
-                {ogImageUrl && (
-                  <meta
-                    key="og:image"
-                    property="og:image"
-                    content={ogImageUrl}
-                  />
-                )}
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-              <hr className="mx-auto mt-12 w-1/3 border-t border-dashed border-brand" />
-              <Webring />
-            </article>
-          </>
+          <EntryArticle
+            title={post.title}
+            headTitle={pageTitle}
+            ogImageUrl={ogImageUrl}
+            coverImage={post.coverImage}
+            date={post.date}
+            author={post.author}
+            content={post.content}
+          />
         )}
       </Container>
     </Layout>

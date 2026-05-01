@@ -9,11 +9,11 @@ type Items = {
   [key: string]: string
 }
 
-export function getPostSlugs() {
+function getPostSlugs() {
   return fs.readdirSync(postsDirectory)
 }
 
-export function getTILSlugs() {
+function getTILSlugs() {
   return fs.readdirSync(tilDirectory)
 }
 
