@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { CSSProperties, useEffect, useState } from 'react'
 import Link from 'next/link'
 
 type Tool = {
@@ -14,6 +14,17 @@ type Props = {
 }
 
 const TOOLS_JSON_URL = 'https://dviramontes.github.io/tools/tools.json'
+
+type ElementTileStyle = CSSProperties & {
+  '--element-hue': string
+}
+
+function getElementTileStyle(index: number, total: number): ElementTileStyle {
+  const progress = total > 1 ? index / (total - 1) : 0
+
+  // Move smoothly from warm metals through metalloids to cool nonmetals.
+  return { '--element-hue': `${Math.round(12 + progress * 205)}deg` }
+}
 
 function getElementSymbol(name: string): string {
   const words = name.split(' ').filter((w) => w.length > 0)
@@ -62,42 +73,47 @@ const ToolsPeriodicTable = ({ size = 'default', showTitle = true }: Props) => {
           isSmall ? 'scale-75 gap-2 sm:scale-100 sm:gap-1.5' : 'gap-3'
         }`}
       >
-        {tools.map((tool, index) => (
-          <Link
-            key={tool.slug}
-            href={`/tools/${tool.slug}`}
-            className="group relative"
-            title={tool.name}
-          >
-            <div
-              className={`bg-gradient-to-br from-emerald-500 to-emerald-700 hover:from-emerald-400 hover:to-emerald-600 rounded flex flex-col items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 ${
-                isSmall
-                  ? 'w-10 h-11 p-1 rounded-md'
-                  : 'w-16 h-18 p-2 rounded-lg'
-              }`}
+        {tools.map((tool, index) => {
+          return (
+            <Link
+              key={tool.slug}
+              href={`/tools/${tool.slug}`}
+              className="group relative"
+              title={tool.name}
             >
-              <span
-                className={`text-emerald-100 font-mono ${
-                  isSmall ? 'text-[6px]' : 'text-[10px]'
+              <div
+                className={`tool-element rounded flex flex-col items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 ${
+                  isSmall
+                    ? 'w-10 h-11 p-1 rounded-md'
+                    : 'w-16 h-18 p-2 rounded-lg'
                 }`}
+                style={getElementTileStyle(index, tools.length)}
               >
-                {index + 1}
-              </span>
-              <span
-                className={`font-bold text-white leading-none ${
-                  isSmall ? 'text-sm' : 'text-2xl'
-                }`}
-              >
-                {getElementSymbol(tool.name)}
-              </span>
-              {!isSmall && (
-                <span className="text-[8px] text-emerald-100 text-center leading-tight mt-1 truncate w-full px-1">
-                  {tool.name.split(' ')[0]}
+                <span
+                  className={`text-white/80 font-mono ${
+                    isSmall ? 'text-[6px]' : 'text-[10px]'
+                  }`}
+                >
+                  {index + 1}
                 </span>
-              )}
-            </div>
-          </Link>
-        ))}
+                <span
+                  className={`font-bold text-white leading-none ${
+                    isSmall ? 'text-sm' : 'text-2xl'
+                  }`}
+                >
+                  {getElementSymbol(tool.name)}
+                </span>
+                {!isSmall && (
+                  <span
+                    className="text-[8px] text-white/80 text-center leading-tight mt-1 truncate w-full px-1"
+                  >
+                    {tool.name.split(' ')[0]}
+                  </span>
+                )}
+              </div>
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
