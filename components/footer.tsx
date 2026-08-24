@@ -15,14 +15,9 @@ const Footer = () => {
             <div className="grid grid-cols-3 gap-y-6 gap-x-2 lg:flex lg:flex-row w-full lg:space-x-2 items-center px-4 lg:px-0">
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
                 <Link href="/about">
-                  <span className="border border-white px-8 py-3 font-bold text-white transition-colors duration-200 hover:bg-white hover:text-stone-950 lg:px-8">
+                  <span className="border border-white bg-stone-950 px-8 py-3 font-bold text-white transition-colors duration-200 hover:bg-stone-800 lg:px-8">
                     About
                   </span>
-                </Link>
-              </div>
-              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <Link href="/">
-                  <span className="font-bold hover:underline">Blog</span>
                 </Link>
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
@@ -31,37 +26,19 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <Link href="/tools">
-                  <span className="font-bold hover:underline">Tools</span>
+                <Link href="/">
+                  <span className="font-bold hover:underline">Posts</span>
                 </Link>
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <a
-                  rel="me"
-                  target="_blank"
-                  href="https://github.com/dviramontes"
-                  className="font-bold hover:underline"
-                >
-                  GitHub
-                </a>
+                <Link href="/bookshelf">
+                  <span className="font-bold hover:underline">Bookshelf</span>
+                </Link>
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/davidviramontes/"
-                  className="font-bold hover:underline"
-                >
-                  Linkedin
-                </a>
-              </div>
-              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <a
-                  target="_blank"
-                  href="https://dviramontes.bsky.social/"
-                  className="font-bold hover:underline"
-                >
-                  Bluesky
-                </a>
+                <Link href="/tools">
+                  <span className="font-bold hover:underline">Tools</span>
+                </Link>
               </div>
               <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
                 <Link href="/feed.xml">

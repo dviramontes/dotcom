@@ -8,6 +8,22 @@ The blog posts are stored in `/_posts` as Markdown files with front matter suppo
 
 To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) and [`remark-html`](https://github.com/remarkjs/remark-html) to convert the Markdown files into an HTML string, and then send it down as a prop to the page. The metadata of every post is handled by [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and also sent in props to the page.
 
+## Bookshelf
+
+The homepage shows the three most recently read books, and `/bookshelf` shows
+the full currently-reading and read shelves. Both pages fetch from the public,
+read-only Hardcover Go API during static generation and revalidate every five
+minutes.
+
+Configure the API URL before building or deploying:
+
+```bash
+BOOKSHELF_API_URL=https://your-bookshelf-api.example/api/bookshelf
+```
+
+The private Hardcover token remains on the Go API server and is never available
+to the blog.
+
 ## Demo
 
 [https://next-blog-starter.vercel.app/](https://next-blog-starter.vercel.app/)
