@@ -29,8 +29,7 @@ function BookshelfPage({ bookshelf, error }: Props): JSX.Element {
         <article className="mb-32">
           <div className="mx-auto max-w-2xl">
             <p className="mb-10 text-lg leading-relaxed">
-              What I&apos;m reading now and the books I&apos;ve read, synced
-              from{' '}
+              Books I&apos;m reading and some I&apos;ve read, synced from{' '}
               <a
                 className="text-brand hover:underline"
                 href={
