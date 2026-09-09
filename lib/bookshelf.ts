@@ -13,7 +13,13 @@ function requestBookshelf(apiURL: string): Promise<Bookshelf> {
   return new Promise((resolve, reject) => {
     const request = transport.get(
       url,
-      { family: 4, headers: { Accept: 'application/json' } },
+      {
+        family: 4,
+        headers: {
+          Accept: 'application/json',
+          'Accept-Encoding': 'identity',
+        },
+      },
       (response) => {
         const chunks: Buffer[] = []
 
