@@ -15,7 +15,8 @@ the full currently-reading and read shelves. Both pages fetch from the public,
 read-only Hardcover Go API during static generation and revalidate every five
 minutes.
 
-Configure the API URL before building or deploying:
+The production fallback is `https://hardcover.guava.nyc/api/bookshelf`. Override
+it before building or deploying when testing another API instance:
 
 ```bash
 BOOKSHELF_API_URL=https://your-bookshelf-api.example/api/bookshelf
