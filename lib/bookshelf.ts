@@ -3,7 +3,8 @@ import https from 'node:https'
 
 import Bookshelf from '../interfaces/bookshelf'
 
-const DEFAULT_BOOKSHELF_API_URL = 'https://pi4.taileab1c.ts.net/api/bookshelf'
+const DEFAULT_BOOKSHELF_API_URL =
+  'https://hardcover.guava.nyc/api/bookshelf'
 
 function requestBookshelf(apiURL: string): Promise<Bookshelf> {
   const url = new URL(apiURL)
