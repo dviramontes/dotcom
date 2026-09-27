@@ -7,6 +7,10 @@ import TILTerminalList from '../components/til-terminal-list'
 import ToolsPeriodicTable from '../components/tools-periodic-table'
 import Webring from '../components/webring'
 import BookshelfPreview from '../components/bookshelf-preview'
+import FeedPreview from '../components/feed-preview'
+import { getFeedPostsForPage } from '../lib/feed'
+import type { GetStaticPropsContext } from 'next'
+import { FeedPost } from '../interfaces/feed'
 import { getAllEntries } from '../lib/api'
 import { getBookshelf } from '../lib/bookshelf'
 import Head from 'next/head'
@@ -18,12 +22,18 @@ type Props = {
   allPosts: Post[]
   allTILs: TILType[]
   recentBooks: Book[]
+  feedPosts: FeedPost[] | null
 }
 
 const POST_FIELDS = ['title', 'date', 'slug', 'author', 'coverImage', 'excerpt']
 const TIL_FIELDS = ['title', 'date', 'slug', 'coverImage', 'excerpt', 'content']
 
-export default function Index({ allPosts, allTILs, recentBooks }: Props) {
+export default function Index({
+  allPosts,
+  allTILs,
+  recentBooks,
+  feedPosts,
+}: Props) {
   const [heroPost, ...morePosts] = allPosts
 
   return (
@@ -53,6 +63,7 @@ export default function Index({ allPosts, allTILs, recentBooks }: Props) {
           <MorePosts posts={morePosts} basePath="/posts" />
         )}
         <BookshelfPreview books={recentBooks} />
+        <FeedPreview posts={feedPosts} />
         <ToolsPeriodicTable />
         <Webring className="mb-16" />
       </Container>
@@ -60,7 +71,7 @@ export default function Index({ allPosts, allTILs, recentBooks }: Props) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (context: GetStaticPropsContext) => {
   let recentBooks: Book[] = []
 
   try {
@@ -75,6 +86,7 @@ export const getStaticProps = async () => {
       allPosts: getAllEntries('posts', POST_FIELDS),
       allTILs: getAllEntries('til', TIL_FIELDS),
       recentBooks,
+      feedPosts: await getFeedPostsForPage(context),
     },
     revalidate: 300,
   }

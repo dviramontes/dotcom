@@ -25,6 +25,20 @@ BOOKSHELF_API_URL=https://your-bookshelf-api.example/api/bookshelf
 The private Hardcover token remains on the Go API server and is never available
 to the blog.
 
+## Feed
+
+`/feed` and the homepage below Bookshelf show up to 10 recent Bluesky posts
+containing external links from `dviramontes.bsky.social`, including reposts
+with original-author credit and excluding replies. Posts are ordered by when
+they were posted or reposted. Link cards and inline links are supported.
+
+The public Bluesky API needs no credentials. The dedicated page revalidates
+every 15 minutes; the homepage retains its five-minute revalidation interval.
+Failed refreshes preserve the previously generated page. If Bluesky is
+unavailable during the initial build, the feed shows a temporary-unavailability
+message and retries on revalidation. Sparse feeds show available entries; scans
+are bounded to 1,000 feed items per refresh.
+
 ## Demo
 
 [https://next-blog-starter.vercel.app/](https://next-blog-starter.vercel.app/)
