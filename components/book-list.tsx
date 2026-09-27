@@ -11,7 +11,7 @@ const readDateFormatter = new Intl.DateTimeFormat('en-US', {
   timeZone: 'UTC',
 })
 
-function formatReadDate(date: string): string {
+function formatDay(date: string): string {
   return readDateFormatter.format(new Date(`${date}T00:00:00Z`))
 }
 
@@ -86,7 +86,7 @@ const BookList = ({ books, emptyMessage }: Props) => {
           </div>
           <div className="col-start-3 row-start-2 flex flex-wrap gap-x-3 text-sm text-stone-500 dark:text-stone-400 sm:col-start-4 sm:row-start-1 sm:block sm:text-right">
             {book.latestReadDate && (
-              <p>Read {formatReadDate(book.latestReadDate)}</p>
+              <p>Read {formatDay(book.latestReadDate)}</p>
             )}
             {book.rating !== null && <p>{book.rating.toFixed(1)} / 5</p>}
             {book.readCount > 1 && <p>Read {book.readCount} times</p>}

@@ -4,6 +4,7 @@
     "start": "next start",
     "dev": "next",
     "build": "next build",
+    "test": "node --test",
     "lint": "next lint",
     "tsc": "tsc",
     "format": "prettier --write --ignore-path .gitignore ."

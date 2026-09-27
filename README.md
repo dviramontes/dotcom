@@ -12,8 +12,8 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) a
 
 The homepage shows the three most recently read books, and `/bookshelf` shows
 the full currently-reading and read shelves. Both pages fetch from the public,
-read-only Hardcover Go API during static generation and revalidate every five
-minutes.
+read-only Hardcover Go API during static generation. The homepage revalidates
+every 30 minutes; `/bookshelf` revalidates every five minutes.
 
 The production fallback is `https://hardcover.guava.nyc/api/bookshelf`. Override
 it before building or deploying when testing another API instance:
@@ -24,6 +24,24 @@ BOOKSHELF_API_URL=https://your-bookshelf-api.example/api/bookshelf
 
 The private Hardcover token remains on the Go API server and is never available
 to the blog.
+
+## Feed
+
+`/feed` shows up to 10 recent Bluesky posts containing external links from
+`dviramontes.bsky.social`, including reposts with original-author credit and
+excluding replies; the homepage previews the three newest below Bookshelf.
+Posts are ordered by when they were posted or reposted. Link cards and inline
+links are supported.
+
+The public Bluesky API needs no credentials. The dedicated page revalidates
+every 30 minutes, as does the homepage.
+On `/feed`, failed refreshes preserve the previously generated page, and if
+Bluesky is unavailable during the initial build the page shows a
+temporary-unavailability message and retries on revalidation. The homepage
+never depends on Bluesky: when the feed cannot be loaded its preview is simply
+omitted so posts, TILs, and books keep refreshing. Sparse feeds show available
+entries; each scan is bounded to 1,000 feed items and eight seconds, and one
+scan is shared by both pages for a minute.
 
 ## Demo
 

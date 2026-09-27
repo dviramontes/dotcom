@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { Book } from '../interfaces/bookshelf'
 import BookList from './book-list'
+import PreviewSection from './preview-section'
 
 type Props = {
   books: Book[]
@@ -12,20 +12,9 @@ const BookshelfPreview = ({ books }: Props) => {
   }
 
   return (
-    <section className="mb-12 mt-8 max-w-[1300px]">
-      <div className="mb-4 flex items-baseline justify-between gap-4">
-        <h2 className="text-2xl font-bold text-stone-800 dark:text-stone-100">
-          <Link href="/bookshelf">Bookshelf</Link>
-        </h2>
-        <Link
-          href="/bookshelf"
-          className="text-sm font-medium text-brand hover:underline"
-        >
-          View all →
-        </Link>
-      </div>
+    <PreviewSection title="Bookshelf" href="/bookshelf" linkText="View all">
       <BookList books={books} emptyMessage="No books are marked as read yet." />
-    </section>
+    </PreviewSection>
   )
 }
 
