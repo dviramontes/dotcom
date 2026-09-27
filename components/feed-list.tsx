@@ -1,10 +1,6 @@
 import { FeedPost } from '../interfaces/feed'
+import { formatTimestamp } from '../lib/dates'
 import FeedText from './feed-text'
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  dateStyle: 'medium',
-  timeZone: 'UTC',
-})
 
 export default function FeedList({ posts }: { posts: FeedPost[] | null }) {
   if (posts === null) {
@@ -35,9 +31,7 @@ export default function FeedList({ posts }: { posts: FeedPost[] | null }) {
           </span>
           <div className="min-w-0 flex-1">
             <div className="mb-3 flex flex-wrap gap-x-3 gap-y-1 text-sm text-stone-500 dark:text-stone-400">
-              <time dateTime={post.date}>
-                {dateFormatter.format(new Date(post.date))}
-              </time>
+              <time dateTime={post.date}>{formatTimestamp(post.date)}</time>
               {post.repost && <span>Reposted from @{post.author}</span>}
             </div>
             <FeedText text={post.text} />
@@ -53,7 +47,7 @@ export default function FeedList({ posts }: { posts: FeedPost[] | null }) {
                     {link.title} <span aria-hidden="true">↗</span>
                   </a>
                   <p className="break-all text-xs text-stone-500 dark:text-stone-400">
-                    {new URL(link.url).hostname}
+                    {link.hostname}
                   </p>
                 </li>
               ))}

@@ -104,9 +104,7 @@ const ToolsPeriodicTable = ({ size = 'default', showTitle = true }: Props) => {
                   {getElementSymbol(tool.name)}
                 </span>
                 {!isSmall && (
-                  <span
-                    className="text-[8px] text-white/80 text-center leading-tight mt-1 truncate w-full px-1"
-                  >
+                  <span className="text-[8px] text-white/80 text-center leading-tight mt-1 truncate w-full px-1">
                     {tool.name.split(' ')[0]}
                   </span>
                 )}

@@ -27,17 +27,21 @@ to the blog.
 
 ## Feed
 
-`/feed` and the homepage below Bookshelf show up to 10 recent Bluesky posts
-containing external links from `dviramontes.bsky.social`, including reposts
-with original-author credit and excluding replies. Posts are ordered by when
-they were posted or reposted. Link cards and inline links are supported.
+`/feed` shows up to 10 recent Bluesky posts containing external links from
+`dviramontes.bsky.social`, including reposts with original-author credit and
+excluding replies; the homepage previews the three newest below Bookshelf.
+Posts are ordered by when they were posted or reposted. Link cards and inline
+links are supported.
 
 The public Bluesky API needs no credentials. The dedicated page revalidates
 every 15 minutes; the homepage retains its five-minute revalidation interval.
-Failed refreshes preserve the previously generated page. If Bluesky is
-unavailable during the initial build, the feed shows a temporary-unavailability
-message and retries on revalidation. Sparse feeds show available entries; scans
-are bounded to 1,000 feed items per refresh.
+On `/feed`, failed refreshes preserve the previously generated page, and if
+Bluesky is unavailable during the initial build the page shows a
+temporary-unavailability message and retries on revalidation. The homepage
+never depends on Bluesky: when the feed cannot be loaded its preview is simply
+omitted so posts, TILs, and books keep refreshing. Sparse feeds show available
+entries; each scan is bounded to 1,000 feed items and eight seconds, and one
+scan is shared by both pages for a minute.
 
 ## Demo
 

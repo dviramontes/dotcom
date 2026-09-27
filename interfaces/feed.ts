@@ -1,3 +1,9 @@
+export type FeedLink = {
+  url: string
+  title: string
+  hostname: string
+}
+
 export type FeedPost = {
   uri: string
   url: string
@@ -5,5 +11,5 @@ export type FeedPost = {
   date: string
   author: string
   repost: boolean
-  links: { url: string; title: string }[]
+  links: FeedLink[]
 }

@@ -8,8 +8,7 @@ import ToolsPeriodicTable from '../components/tools-periodic-table'
 import Webring from '../components/webring'
 import BookshelfPreview from '../components/bookshelf-preview'
 import FeedPreview from '../components/feed-preview'
-import { getFeedPostsForPage } from '../lib/feed'
-import type { GetStaticPropsContext } from 'next'
+import { getFeedPosts } from '../lib/feed'
 import { FeedPost } from '../interfaces/feed'
 import { getAllEntries } from '../lib/api'
 import { getBookshelf } from '../lib/bookshelf'
@@ -27,6 +26,7 @@ type Props = {
 
 const POST_FIELDS = ['title', 'date', 'slug', 'author', 'coverImage', 'excerpt']
 const TIL_FIELDS = ['title', 'date', 'slug', 'coverImage', 'excerpt', 'content']
+const PREVIEW_COUNT = 3
 
 export default function Index({
   allPosts,
@@ -71,14 +71,25 @@ export default function Index({
   )
 }
 
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  let recentBooks: Book[] = []
+export const getStaticProps = async () => {
+  // Neither external source may block the homepage's posts, TILs, or refreshes.
+  const [bookshelf, feed] = await Promise.allSettled([
+    getBookshelf(),
+    getFeedPosts(),
+  ])
 
-  try {
-    const bookshelf = await getBookshelf()
-    recentBooks = bookshelf.read.slice(0, 3)
-  } catch (error) {
-    console.error('Could not load recent books', error)
+  let recentBooks: Book[] = []
+  if (bookshelf.status === 'fulfilled') {
+    recentBooks = bookshelf.value.read.slice(0, PREVIEW_COUNT)
+  } else {
+    console.error('Could not load recent books', bookshelf.reason)
+  }
+
+  let feedPosts: FeedPost[] | null = null
+  if (feed.status === 'fulfilled') {
+    feedPosts = feed.value.slice(0, PREVIEW_COUNT)
+  } else {
+    console.error('Could not load Bluesky feed', feed.reason)
   }
 
   return {
@@ -86,7 +97,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
       allPosts: getAllEntries('posts', POST_FIELDS),
       allTILs: getAllEntries('til', TIL_FIELDS),
       recentBooks,
-      feedPosts: await getFeedPostsForPage(context),
+      feedPosts,
     },
     revalidate: 300,
   }
