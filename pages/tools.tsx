@@ -45,8 +45,8 @@ function Tools(): JSX.Element {
           <div className="max-w-2xl mx-auto">
             <ToolsPeriodicTable size="small" showTitle={false} />
             <p className="text-lg leading-relaxed mb-8">
-              Small, self-contained, single-purpose tools. Each one is a
-              standalone HTML file with no dependencies.
+              A collection of browser utilities, personal dashboards, learning
+              tools, and developer projects.
             </p>
             {loading && (
               <p className="text-stone-500 dark:text-stone-400">
