@@ -12,8 +12,8 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) a
 
 The homepage shows the three most recently read books, and `/bookshelf` shows
 the full currently-reading and read shelves. Both pages fetch from the public,
-read-only Hardcover Go API during static generation and revalidate every five
-minutes.
+read-only Hardcover Go API during static generation. The homepage revalidates
+every 30 minutes; `/bookshelf` revalidates every five minutes.
 
 The production fallback is `https://hardcover.guava.nyc/api/bookshelf`. Override
 it before building or deploying when testing another API instance:
@@ -34,7 +34,7 @@ Posts are ordered by when they were posted or reposted. Link cards and inline
 links are supported.
 
 The public Bluesky API needs no credentials. The dedicated page revalidates
-every 15 minutes; the homepage retains its five-minute revalidation interval.
+every 30 minutes, as does the homepage.
 On `/feed`, failed refreshes preserve the previously generated page, and if
 Bluesky is unavailable during the initial build the page shows a
 temporary-unavailability message and retries on revalidation. The homepage

@@ -99,6 +99,6 @@ export const getStaticProps = async () => {
       recentBooks,
       feedPosts,
     },
-    revalidate: 300,
+    revalidate: 1800,
   }
 }

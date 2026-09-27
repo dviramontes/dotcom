@@ -38,5 +38,5 @@ export default function Feed({ posts }: { posts: FeedPost[] | null }) {
 
 export const getStaticProps: GetStaticProps = async (context) => ({
   props: { posts: await getFeedPostsForPage(context) },
-  revalidate: 900,
+  revalidate: 1800,
 })
