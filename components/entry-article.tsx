@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import type { ReactNode } from 'react'
 import type Author from '../interfaces/author'
+import markdownStyles from './markdown-styles.module.css'
 import PostBody from './post-body'
 import PostHeader from './post-header'
 import Webring from './webring'
@@ -44,7 +45,7 @@ const EntryArticle = ({
     />
     <PostBody content={content} />
     {children}
-    <hr className="mx-auto mt-12 w-1/3 border-t border-dashed border-brand" />
+    <hr className={markdownStyles.divider} />
     <Webring />
   </article>
 )
