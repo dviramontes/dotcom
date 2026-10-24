@@ -1,11 +1,11 @@
 import Container from '../components/container'
 import TILTerminalList from '../components/til-terminal-list'
 import Layout from '../components/layout'
+import PostTitle from '../components/post-title'
 import { getAllEntries } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 import type TILType from '../interfaces/til'
-import Header from '../components/header'
 
 type Props = {
   allPosts: TILType[]
@@ -20,10 +20,10 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <article>
           <Container>
-            <Header />
+            <PostTitle>TIL</PostTitle>
             <article className="w-full">
               <div className="max-w-4xl mx-auto">
-                {allPosts.length > 0 && <TILTerminalList entries={allPosts} />}
+                <TILTerminalList entries={allPosts} showTitle={false} />
               </div>
             </article>
           </Container>

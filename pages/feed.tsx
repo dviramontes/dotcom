@@ -1,7 +1,6 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Container from '../components/container'
-import Header from '../components/header'
 import Layout from '../components/layout'
 import PostTitle from '../components/post-title'
 import FeedList from '../components/feed-list'
@@ -16,7 +15,6 @@ export default function Feed({ posts }: { posts: FeedPost[] | null }) {
         <meta name="description" content="Recent shared links." />
       </Head>
       <Container>
-        <Header />
         <PostTitle>Feed</PostTitle>
         <div className="mx-auto mb-32 max-w-2xl">
           <FeedList posts={posts} />

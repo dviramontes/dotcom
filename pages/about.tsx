@@ -1,6 +1,5 @@
 import Layout from '../components/layout'
 import Container from '../components/container'
-import Header from '../components/header'
 import PostTitle from '../components/post-title'
 import Webring from '../components/webring'
 import HCard from '../components/h-card'
@@ -9,11 +8,10 @@ function About(): JSX.Element {
   return (
     <Layout preview={false}>
       <Container>
-        <Header />
         <PostTitle>About</PostTitle>
         <article className="mb-32">
           <div className="max-w-2xl mx-auto">
-            <h1 className="text-5xl">👋🏽 ¡Hola!</h1>
+            <h2 className="text-5xl">👋🏽 ¡Hola!</h2>
             <br />
             <p>
               My name is David Viramontes, I&apos;m originally from México

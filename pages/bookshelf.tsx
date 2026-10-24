@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import BookList from '../components/book-list'
 import Container from '../components/container'
-import Header from '../components/header'
 import Layout from '../components/layout'
 import PostTitle from '../components/post-title'
 import Bookshelf from '../interfaces/bookshelf'
@@ -24,7 +23,6 @@ function BookshelfPage({ bookshelf, error }: Props): JSX.Element {
         />
       </Head>
       <Container>
-        <Header />
         <PostTitle>Bookshelf</PostTitle>
         <article className="mb-32">
           <div className="mx-auto max-w-2xl">

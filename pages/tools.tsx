@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Layout from '../components/layout'
 import Container from '../components/container'
-import Header from '../components/header'
 import PostTitle from '../components/post-title'
 import ToolsPeriodicTable from '../components/tools-periodic-table'
 
@@ -39,7 +38,6 @@ function Tools(): JSX.Element {
   return (
     <Layout preview={false}>
       <Container>
-        <Header />
         <PostTitle>Tools</PostTitle>
         <article className="mb-32">
           <div className="max-w-2xl mx-auto">
