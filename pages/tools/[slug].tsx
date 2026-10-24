@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Layout from '../../components/layout'
 import Container from '../../components/container'
-import Header from '../../components/header'
 import PostTitle from '../../components/post-title'
 
 type Tool = {
@@ -74,7 +73,6 @@ function ToolPage(): JSX.Element {
   return (
     <Layout preview={false}>
       <Container>
-        <Header />
         {loading && (
           <p className="text-stone-500 dark:text-stone-400">Loading...</p>
         )}

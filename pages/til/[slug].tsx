@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
-import Header from '../../components/header'
 import TILPagination from '../../components/til-pagination'
 import Layout from '../../components/layout'
 import EntryArticle from '../../components/entry-article'
@@ -29,7 +28,6 @@ export default function TIL({ post, previousTIL, nextTIL, preview }: Props) {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (

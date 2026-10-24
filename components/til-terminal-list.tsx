@@ -4,9 +4,10 @@ import TILType from '../interfaces/til'
 type Props = {
   entries: TILType[]
   limit?: number
+  showTitle?: boolean
 }
 
-const TILTerminalList = ({ entries, limit }: Props) => {
+const TILTerminalList = ({ entries, limit, showTitle = true }: Props) => {
   const displayEntries = limit ? entries.slice(0, limit) : entries
   const hasMore = limit && entries.length > limit
   const formatEntry = (entry: TILType) => ({
@@ -20,10 +21,12 @@ const TILTerminalList = ({ entries, limit }: Props) => {
   })
 
   return (
-    <div className="mt-8 mb-12 max-w-[1300px]">
-      <h2 className="mb-4 text-2xl font-bold text-stone-800 dark:text-stone-100">
-        <Link href="/til">Today I Learned</Link>
-      </h2>
+    <div className={`${showTitle ? 'mt-8 ' : ''}mb-12 max-w-[1300px]`}>
+      {showTitle && (
+        <h2 className="mb-4 text-2xl font-bold text-stone-800 dark:text-stone-100">
+          <Link href="/til">Today I Learned</Link>
+        </h2>
+      )}
       <div className="overflow-x-auto rounded-md border border-[#2f2926] bg-[#1c1917] p-4 font-mono text-sm text-[#f5f5f4] shadow-sm dark:border-[#44403c]">
         <div className="mb-2 font-bold text-[#b8b0aa]">$ ls til</div>
         {displayEntries.length > 0 ? (

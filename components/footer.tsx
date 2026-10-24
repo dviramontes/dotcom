@@ -1,3 +1,4 @@
+import { navigationLinks } from './navigation-links'
 import Container from './container'
 import Link from 'next/link'
 
@@ -13,38 +14,24 @@ const Footer = () => {
           </h3>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/3">
             <div className="grid grid-cols-3 gap-y-6 gap-x-2 lg:flex lg:flex-row w-full lg:space-x-2 items-center px-4 lg:px-0">
-              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <Link href="/about">
-                  <span className="border border-white bg-stone-950 px-8 py-3 font-bold text-white transition-colors duration-200 hover:bg-stone-800 lg:px-8">
-                    About
-                  </span>
-                </Link>
-              </div>
-              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <Link href="/til">
-                  <span className="font-bold hover:underline">TIL</span>
-                </Link>
-              </div>
-              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <Link href="/">
-                  <span className="font-bold hover:underline">Posts</span>
-                </Link>
-              </div>
-              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <Link href="/bookshelf">
-                  <span className="font-bold hover:underline">Bookshelf</span>
-                </Link>
-              </div>
-              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <Link href="/tools">
-                  <span className="font-bold hover:underline">Tools</span>
-                </Link>
-              </div>
-              <div className="w-full lg:w-auto my-2 lg:my-0 text-center">
-                <Link href="/feed.xml">
-                  <span className="font-bold hover:underline">RSS</span>
-                </Link>
-              </div>
+              {navigationLinks.map(({ href, label }) => (
+                <div
+                  key={label}
+                  className="w-full lg:w-auto my-2 lg:my-0 text-center"
+                >
+                  <Link href={href}>
+                    <span
+                      className={
+                        label === 'About'
+                          ? 'border border-white bg-stone-950 px-3 py-3 font-bold text-white transition-colors duration-200 hover:bg-stone-800 lg:px-8'
+                          : 'font-bold hover:underline'
+                      }
+                    >
+                      {label}
+                    </span>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </div>
