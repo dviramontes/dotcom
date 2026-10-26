@@ -1,9 +1,9 @@
 export const navigationLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/bookshelf', label: 'Bookshelf' },
-  { href: '/feed', label: 'Feed' },
   { href: '/', label: 'Posts' },
-  { href: '/feed.xml', label: 'RSS' },
   { href: '/til', label: 'TIL' },
   { href: '/tools', label: 'Tools' },
+  { href: '/bookshelf', label: 'Bookshelf' },
+  { href: '/feed', label: 'Feed' },
+  { href: '/about', label: 'About' },
+  { href: '/feed.xml', label: 'RSS' },
 ]
