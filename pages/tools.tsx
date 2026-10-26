@@ -40,7 +40,7 @@ function Tools(): JSX.Element {
       <Container>
         <PostTitle>Tools</PostTitle>
         <article className="mb-32">
-          <div className="max-w-2xl mx-auto">
+          <div className="min-w-0 max-w-2xl mx-auto [overflow-wrap:anywhere]">
             <ToolsPeriodicTable size="small" showTitle={false} />
             <p className="text-lg leading-relaxed mb-8">
               A collection of browser utilities, personal dashboards, learning
@@ -59,7 +59,7 @@ function Tools(): JSX.Element {
                 <Link
                   key={tool.slug}
                   href={`/tools/${tool.slug}`}
-                  className="block rounded-lg border border-stone-300/80 bg-white/60 p-6 transition-colors hover:border-stone-500 dark:border-stone-700 dark:bg-stone-900/50 dark:hover:border-stone-500"
+                  className="block min-w-0 rounded-lg border border-stone-300/80 bg-white/60 p-4 sm:p-6 transition-colors hover:border-stone-500 dark:border-stone-700 dark:bg-stone-900/50 dark:hover:border-stone-500"
                 >
                   <h2 className="mb-2 text-xl font-semibold text-brand">
                     {tool.name}
