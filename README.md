@@ -28,12 +28,14 @@ to the blog.
 ## Feed
 
 `/feed` shows up to 10 recent Bluesky posts containing external links from
-`dviramontes.bsky.social`, including reposts with original-author credit and
+`dviramontes.com`, including reposts with original-author credit and
 excluding replies; the homepage previews the three newest below Bookshelf.
 Posts are ordered by when they were posted or reposted. Link cards and inline
 links are supported.
 
-The public Bluesky API needs no credentials. The dedicated page revalidates
+The public Bluesky API needs no credentials. Feed requests and the profile link
+use the account's permanent DID so handle changes do not interrupt syncing.
+The dedicated page revalidates
 every 30 minutes, as does the homepage.
 On `/feed`, failed refreshes preserve the previously generated page, and if
 Bluesky is unavailable during the initial build the page shows a

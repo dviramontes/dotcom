@@ -1,8 +1,10 @@
 import { FeedLink, FeedPost } from '../interfaces/feed'
 import type { GetStaticPropsContext } from 'next'
 
-export const BLUESKY_HANDLE = 'dviramontes.bsky.social'
-export const BLUESKY_PROFILE = `https://bsky.app/profile/${BLUESKY_HANDLE}`
+export const BLUESKY_HANDLE = 'dviramontes.com'
+// The account DID stays stable when its handle changes.
+export const BLUESKY_DID = 'did:plc:iet32r5je3sdry67ppgn5ory'
+export const BLUESKY_PROFILE = `https://bsky.app/profile/${BLUESKY_DID}`
 
 const FEED_ENDPOINT =
   'https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed'
@@ -103,7 +105,7 @@ async function fetchFeedPage(
   signal: AbortSignal,
 ): Promise<FeedPage> {
   const url = new URL(FEED_ENDPOINT)
-  url.searchParams.set('actor', BLUESKY_HANDLE)
+  url.searchParams.set('actor', BLUESKY_DID)
   url.searchParams.set('filter', 'posts_no_replies')
   url.searchParams.set('limit', '100')
   if (cursor) url.searchParams.set('cursor', cursor)

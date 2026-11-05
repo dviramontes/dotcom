@@ -70,6 +70,22 @@ for (const [name, fetch] of [
   })
 }
 
+test('feed and profile use the permanent account ID across handle changes', async () => {
+  let requestedUrl
+  const { getFeedPosts, BLUESKY_DID, BLUESKY_PROFILE } = loadFeed(
+    async (url) => {
+      requestedUrl = url
+      return { ok: true, json: async () => ({ feed: [] }) }
+    },
+  )
+  await getFeedPosts()
+  assert.equal(
+    new URL(requestedUrl).searchParams.get('actor'),
+    'did:plc:iet32r5je3sdry67ppgn5ory',
+  )
+  assert.equal(BLUESKY_PROFILE, `https://bsky.app/profile/${BLUESKY_DID}`)
+})
+
 test('successful empty feed remains distinct from unavailable feed', async () => {
   const { getFeedPostsForPage: getPosts } = loadFeed(async () => ({
     ok: true,
